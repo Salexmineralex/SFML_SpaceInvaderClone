@@ -1,0 +1,11 @@
+# CMake generation dependency list for this directory.
+C:/Users/Usuario/Desktop/Programacion en C++/SFML_Project/SFML_SpaceInvaderClone/build/_deps/sfml-src/CMakeLists.txt
+C:/Users/Usuario/Desktop/Programacion en C++/SFML_Project/SFML_SpaceInvaderClone/build/_deps/sfml-src/cmake/Config.cmake
+C:/Users/Usuario/Desktop/Programacion en C++/SFML_Project/SFML_SpaceInvaderClone/build/_deps/sfml-src/cmake/SFMLConfig.cmake.in
+C:/Users/Usuario/Desktop/Programacion en C++/SFML_Project/SFML_SpaceInvaderClone/build/_deps/sfml-src/cmake/SFMLConfigDependencies.cmake.in
+D:/CMake/share/cmake-3.25/Modules/BasicConfigVersion-SameMajorVersion.cmake.in
+D:/CMake/share/cmake-3.25/Modules/CMakePackageConfigHelpers.cmake
+D:/CMake/share/cmake-3.25/Modules/CheckIncludeFile.cmake
+D:/CMake/share/cmake-3.25/Modules/CheckIncludeFileCXX.cmake
+D:/CMake/share/cmake-3.25/Modules/CheckTypeSize.cmake
+D:/CMake/share/cmake-3.25/Modules/WriteBasicConfigVersionFile.cmake

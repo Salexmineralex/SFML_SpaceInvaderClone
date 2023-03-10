@@ -1,0 +1,10 @@
+^C:\USERS\USUARIO\DESKTOP\PROGRAMACION EN C++\SFML_PROJECT\SFML_SPACEINVADERCLONE\BUILD\CMAKEFILES\6D5A47CB4DE55D1FA8BA37C037C6373D\GENERATE.STAMP.RULE
+setlocal
+D:\CMake\bin\cmake.exe "-SC:/Users/Usuario/Desktop/Programacion en C++/SFML_Project/SFML_SpaceInvaderClone" "-BC:/Users/Usuario/Desktop/Programacion en C++/SFML_Project/SFML_SpaceInvaderClone/build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "C:/Users/Usuario/Desktop/Programacion en C++/SFML_Project/SFML_SpaceInvaderClone/build/SpaceInvadersSFMLClone.sln"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

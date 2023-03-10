@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\build\_deps\sfml-subbuild\CMakeFiles\2f5ddd86a17e24167e3ad51be1fc219d\sfml-populate-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\build\_deps\sfml-subbuild\CMakeFiles\2f5ddd86a17e24167e3ad51be1fc219d\sfml-populate-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\build\_deps\sfml-subbuild\CMakeFiles\2f5ddd86a17e24167e3ad51be1fc219d\sfml-populate-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\build\_deps\sfml-subbuild\CMakeFiles\2f5ddd86a17e24167e3ad51be1fc219d\sfml-populate-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\build\_deps\sfml-subbuild\CMakeFiles\2f5ddd86a17e24167e3ad51be1fc219d\sfml-populate-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\build\_deps\sfml-subbuild\CMakeFiles\2f5ddd86a17e24167e3ad51be1fc219d\sfml-populate-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\build\_deps\sfml-subbuild\CMakeFiles\2f5ddd86a17e24167e3ad51be1fc219d\sfml-populate-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\build\_deps\sfml-subbuild\CMakeFiles\2f5ddd86a17e24167e3ad51be1fc219d\sfml-populate-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\build\_deps\sfml-subbuild\CMakeFiles\857741fe2d76f550272fd3215d54f5e8\sfml-populate-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\build\_deps\sfml-subbuild\CMakeFiles\a46825a338ac714be90a24b21a1a15c6\sfml-populate.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\build\_deps\sfml-subbuild\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\build\_deps\sfml-subbuild\CMakeFiles\sfml-populate" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{542604BA-C566-3C8D-AA56-7CD42C71F225}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

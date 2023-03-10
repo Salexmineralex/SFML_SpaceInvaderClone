@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\source\Enemy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\source\Bullet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\source\Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\source\Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\source\UIManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\source\World.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\source\GameObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\source\InputManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\source\EnemySpawner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\source\TextureLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\include\Enemy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\include\Bullet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\include\Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\include\Game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\include\UIManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\include\World.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\include\Gameobject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\include\InputManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\include\EnemySpawner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\include\TextureLoader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{A1B47CBE-2EF0-3646-9043-A1E470902CD1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{F34225B5-42F5-3327-A886-8AA4D7F954D4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

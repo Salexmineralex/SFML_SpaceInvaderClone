@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "C:/Users/Usuario/Desktop/Programacion en C++/SFML_Project/SFML_SpaceInvaderClone/build/_deps/sfml-subbuild/CMakeFiles/sfml-populate"
+		},
+		{
+			"file" : "C:/Users/Usuario/Desktop/Programacion en C++/SFML_Project/SFML_SpaceInvaderClone/build/_deps/sfml-subbuild/CMakeFiles/a46825a338ac714be90a24b21a1a15c6/sfml-populate.rule"
+		},
+		{
+			"file" : "C:/Users/Usuario/Desktop/Programacion en C++/SFML_Project/SFML_SpaceInvaderClone/build/_deps/sfml-subbuild/CMakeFiles/857741fe2d76f550272fd3215d54f5e8/sfml-populate-complete.rule"
+		},
+		{
+			"file" : "C:/Users/Usuario/Desktop/Programacion en C++/SFML_Project/SFML_SpaceInvaderClone/build/_deps/sfml-subbuild/CMakeFiles/2f5ddd86a17e24167e3ad51be1fc219d/sfml-populate-build.rule"
+		},
+		{
+			"file" : "C:/Users/Usuario/Desktop/Programacion en C++/SFML_Project/SFML_SpaceInvaderClone/build/_deps/sfml-subbuild/CMakeFiles/2f5ddd86a17e24167e3ad51be1fc219d/sfml-populate-configure.rule"
+		},
+		{
+			"file" : "C:/Users/Usuario/Desktop/Programacion en C++/SFML_Project/SFML_SpaceInvaderClone/build/_deps/sfml-subbuild/CMakeFiles/2f5ddd86a17e24167e3ad51be1fc219d/sfml-populate-download.rule"
+		},
+		{
+			"file" : "C:/Users/Usuario/Desktop/Programacion en C++/SFML_Project/SFML_SpaceInvaderClone/build/_deps/sfml-subbuild/CMakeFiles/2f5ddd86a17e24167e3ad51be1fc219d/sfml-populate-install.rule"
+		},
+		{
+			"file" : "C:/Users/Usuario/Desktop/Programacion en C++/SFML_Project/SFML_SpaceInvaderClone/build/_deps/sfml-subbuild/CMakeFiles/2f5ddd86a17e24167e3ad51be1fc219d/sfml-populate-mkdir.rule"
+		},
+		{
+			"file" : "C:/Users/Usuario/Desktop/Programacion en C++/SFML_Project/SFML_SpaceInvaderClone/build/_deps/sfml-subbuild/CMakeFiles/2f5ddd86a17e24167e3ad51be1fc219d/sfml-populate-patch.rule"
+		},
+		{
+			"file" : "C:/Users/Usuario/Desktop/Programacion en C++/SFML_Project/SFML_SpaceInvaderClone/build/_deps/sfml-subbuild/CMakeFiles/2f5ddd86a17e24167e3ad51be1fc219d/sfml-populate-test.rule"
+		},
+		{
+			"file" : "C:/Users/Usuario/Desktop/Programacion en C++/SFML_Project/SFML_SpaceInvaderClone/build/_deps/sfml-subbuild/CMakeFiles/2f5ddd86a17e24167e3ad51be1fc219d/sfml-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"sfml-populate"
+		],
+		"name" : "sfml-populate"
+	}
+}
