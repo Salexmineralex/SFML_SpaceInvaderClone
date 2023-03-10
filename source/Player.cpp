@@ -57,14 +57,15 @@ void Player::update(float dt)
     if (m_InputManager->GetKeyPressed(sf::Keyboard::Space) && !isShooting)
     {
       
-         
+        isShooting = true;
+
         Bullet* b = new Bullet();
 
         b->setPosition(getPosition().x + b->getTexture()->getSize().x/4, getPosition().y-20);
 
         m_world.addObject(b);
 
-        isShooting = true;
+      
 
     }
 
