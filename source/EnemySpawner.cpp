@@ -38,7 +38,7 @@ void EnemySpawner::update(float dt)
             {
                 enemyGrid[i]->move(35, 0);
 
-                if (enemyGrid[i]->getPosition().x > m_window.getSize().x - enemyGrid[i]->getTexture()->getSize().x)
+                if (enemyGrid[i]->getPosition().x+ enemyGrid[i]->getTexture()->getSize().x > m_window.getSize().x - enemyGrid[i]->getTexture()->getSize().x)
                 {
                     move_to_left = true;
                     move_down = true;

@@ -75,7 +75,7 @@ void Bullet::update(float dt)
       }
       else
       {
-          move(0, -(100 * dt));
+          move(0, -(250 * dt));
       
       }
 }
