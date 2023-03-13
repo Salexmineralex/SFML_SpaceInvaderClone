@@ -42,5 +42,9 @@ private:
     //Methods
     void spawn(int level);
 
+    void deleteObjects();
+
+    void CheckLost();
+
 
 };

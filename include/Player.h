@@ -17,6 +17,10 @@ public:
     static ObjectPooler<Bullet>* bulletPool;
 
     //GetandSetters
+    const sf::Texture* getTexture();
+
+    const sf::Sprite getSprite();
+
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 
     float getSpeed() const;
@@ -34,7 +38,14 @@ public:
    
     bool isMarkedForDeletion() const ;
 
+    void setPosition(float x, float y);
+
     void setPosition(sf::Vector2f position);
+
+    void move(float offsetX, float offsetY);
+
+    virtual bool collidesWith(const Gameobject& other) const override;
+    virtual void handleCollision(Gameobject& other) override;
 
 private:
 
@@ -45,6 +56,6 @@ private:
     InputManager* m_InputManager;
     World& m_world;
     sf::RenderWindow& m_window;
-    //Metodos
+
  
 };

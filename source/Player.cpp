@@ -1,4 +1,5 @@
 #include "player.h"
+#include <TextureLoader.h>
 
 
 //Constructores
@@ -11,7 +12,33 @@ Player::Player(InputManager* inputManager, World& world, sf::RenderWindow& windo
     m_world(world),
     m_window(window)
 {
-    this->bulletPool = new ObjectPooler<Bullet>(1);
+    TextureLoader t;
+    if (t.getTexture(getTag()) != nullptr)
+    {
+        this->m_texture = t.getTexture(getTag());
+    }
+    else
+    {
+        this->m_texture = new sf::Texture();
+
+        if (!m_texture->loadFromFile("../Assets/Sprites/Ship_Idle.png"))
+        {
+            // Error loading texture
+
+            return;
+        }
+
+        t.addTexture(getTag(), m_texture);
+    }
+
+
+
+    this->setPosition(0, 0);
+    this->setOrigin(0, 0);
+    m_sprite.setPosition(0, 0);
+    m_sprite.setTexture(*this->m_texture);
+    m_sprite.setOrigin(0, 0);
+    this->bulletPool = new ObjectPooler<Bullet>(3);
 }
 
 Player::Player(InputManager* inputManager, World& world, sf::RenderWindow& window, float speed):
@@ -20,7 +47,33 @@ Player::Player(InputManager* inputManager, World& world, sf::RenderWindow& windo
     m_world(world),
     m_window(window)
 {
-    this->bulletPool = new ObjectPooler<Bullet>(1);
+    TextureLoader t;
+    if (t.getTexture(getTag()) != nullptr)
+    {
+        this->m_texture = t.getTexture(getTag());
+    }
+    else
+    {
+        this->m_texture = new sf::Texture();
+
+        if (!m_texture->loadFromFile("../Assets/Sprites/bulletSprite.png"))
+        {
+            // Error loading texture
+
+            return;
+        }
+
+        t.addTexture(getTag(), m_texture);
+    }
+
+
+
+    this->setPosition(0, 0);
+    this->setOrigin(0, 0);
+    m_sprite.setPosition(0, 0);
+    m_sprite.setTexture(*this->m_texture);
+    m_sprite.setOrigin(0, 0);
+    this->bulletPool = new ObjectPooler<Bullet>(3);
 }
 
 float Player::getSpeed() const
@@ -64,6 +117,8 @@ void Player::update(float dt)
 
         Bullet* b = bulletPool->get_one();
 
+        b->mIsMarkedForDeletion = false;
+
         b->setVisibility(true);
 
         b->setPosition(getPosition().x + b->getTexture()->getSize().x/4, getPosition().y-20);
@@ -90,16 +145,55 @@ bool Player::isMarkedForDeletion() const
 {
     return Gameobject::mIsMarkedForDeletion;
 }
+
 void Player::setPosition(sf::Vector2f position)
 {
-    Gameobject::setPosition(position);
+    sf::Transformable::setPosition(position.x, position.y);
+    m_sprite.setPosition(getPosition());
 }
 
+void Player::setPosition(float x, float y)
+{
+
+    sf::Transformable::setPosition(x, y);
+    m_sprite.setPosition(getPosition());
+}
+
+// Override the move function to update the sprite's position
+void Player::move(float x, float y)
+{
+
+    sf::Transformable::setPosition(this->getPosition().x + x, this->getPosition().y + y);
+    m_sprite.setPosition(getPosition());
+
+
+}
+
+const sf::Texture* Player::getTexture()
+{
+    return this->m_texture;
+}
+
+const sf::Sprite Player::getSprite()
+{
+    return this->m_sprite;
+}
+
+bool Player::collidesWith(const Gameobject& other) const
+{
+    return false;
+};
+void Player::handleCollision(Gameobject& other)
+{
+
+
+
+};
 
 void Player::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-    sf::CircleShape p(20);
-    p.setFillColor(sf::Color::Red);
-    p.setPosition(Gameobject::getPosition());
-    target.draw(p);
+    if (this->mVisibility)
+    {
+        target.draw(m_sprite, states);
+    }
 };

@@ -26,9 +26,7 @@ public:
 private:
 
     // Atributos
-    sf::Sprite m_sprite;
-    
-    sf::Texture* m_texture;
+
 
     
 };

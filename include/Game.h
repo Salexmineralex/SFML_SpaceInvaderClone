@@ -2,7 +2,6 @@
 #include <SFML/Graphics.hpp>
 #include "World.h"
 #include "TextureLoader.h"
-#include "world.h"
 #include "player.h"
 #include "enemySpawner.h"
 #include "UIManager.h"
@@ -20,20 +19,29 @@ public:
     
     static UIManager* getUIManager();
     static World* getWorld();
+    static sf::Font* getFont();
     static void incrementLevel();
     static const int getLevel();
     //Methods
     bool wantsToQuitGame();
-    void setQuitGame(bool quitGame);
+
 
 
 
 private:
-    void handleEvents();
+
+    //Attributes
     sf::RenderWindow m_window;
     static UIManager* uiManager;
     static World* world;
+    static sf::Font* font;
     static int actualLevel;
+ 
 
-    bool quitGame = false;
+
+    //static bool quitGame;
+
+    //Methods
+    //static void setQuitGame(bool quitGame);
+    void handleEvents();
 };

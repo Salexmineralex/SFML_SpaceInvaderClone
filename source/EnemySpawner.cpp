@@ -18,14 +18,16 @@ std::string EnemySpawner::getTag() const
 
 void EnemySpawner::update(float dt)
 {
-    if (enemydeltaClock >= 3)
+    deleteObjects();
+    CheckLost();
+    if (enemydeltaClock >= 3 )
     {
         if (move_down)
         {
             for (int i = 0; i < enemyGrid.size(); i++)
             {
              
-                enemyGrid[i]->move(0, 35);
+                enemyGrid[i]->move(0, 100);
 
             }
             move_down = false;
@@ -69,7 +71,7 @@ void EnemySpawner::update(float dt)
 
     if(enemyGrid.size() <= 0 && have_to_spawn == false)
     {
-  
+        Game::incrementLevel();
         this->want_to_spawn();
     }
 
@@ -86,19 +88,24 @@ void EnemySpawner::spawn(int level)
 
 
         //Spawn Enemies
-        for (size_t i = 0; i < 9 * level; i++)
+        for (size_t i = 0; i < 2 * level; i++)
         {
 
             Enemy* p = this->enemyPool.get_one();
-
-            p->setPosition(sf::Vector2f(m_window.getSize().x/2 - p->getTexture()->getSize().x * colum * 2.5, line));
+            p->mIsMarkedForDeletion = false;
+            p->setVisibility(true);
+            m_world.addObject(p);
+            p->setPosition(sf::Vector2f((m_window.getSize().x/2 - p->getTexture()->getSize().x) - p->getTexture()->getSize().x * colum * 2.5, line));
 
             enemyGrid.push_back(p);
 
 
 
             Enemy* g = this->enemyPool.get_one();
-            g->setPosition(sf::Vector2f(m_window.getSize().x / 2 + p->getTexture()->getSize().x * colum * 2.5, line));
+            g->mIsMarkedForDeletion = false;
+            g->setVisibility(true);
+            m_world.addObject(g);
+            g->setPosition(sf::Vector2f((m_window.getSize().x / 2 + p->getTexture()->getSize().x) + p->getTexture()->getSize().x * colum * 2.5, line));
 
             enemyGrid.push_back(g);
 
@@ -114,9 +121,37 @@ void EnemySpawner::spawn(int level)
                 colum = 0;
             }
 
-        }
+         }
+
+        std::cout << "AS";
    
 };
+
+void EnemySpawner::deleteObjects()
+{
+    auto it = enemyGrid.begin();
+    while (it != enemyGrid.end()) {
+        if ((*it)->isMarkedForDeletion()) {
+            
+            enemyPool.add_one(*it);
+            it = enemyGrid.erase(it); // Remove object from vector
+        }
+        else {
+            ++it;
+        }
+    }
+}
+
+void EnemySpawner::CheckLost()
+{
+    for (int i = 0; i < enemyGrid.size(); i++)
+    {
+        if (enemyGrid[i]->getPosition().y >= m_window.getSize().y - 150)
+        {
+            std::cout << "Lost";
+        }
+    }
+}
 
 bool EnemySpawner::isMarkedForDeletion() const
 {
@@ -126,10 +161,10 @@ bool EnemySpawner::isMarkedForDeletion() const
 
 void EnemySpawner::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-    for (size_t i = 0; i < enemyGrid.size(); i++)
+   /* for (size_t i = 0; i < enemyGrid.size(); i++)
     {
         enemyGrid[i]->draw(m_window,states);
-    }
+    }*/
     
 }
 
@@ -138,13 +173,7 @@ void EnemySpawner::createText(std::string str)
 
     sf::Text* text = new sf::Text();
 
-    sf::Font* font = new sf::Font();
-    if (!font->loadFromFile("../Assets/Fonts/dogica.ttf"))
-    {
-        // error...
-    }
-
-    text->setFont(*font);
+    text->setFont(*Game::getFont());
 
     text->setCharacterSize(100);
 

@@ -2,10 +2,14 @@
 #include <iostream>
 #include "TextureLoader.h"
 #include "Player.h"
-int Bullet::vecescreadaunabala = 0;
+#include "Game.h"
+
+
+
 
 Bullet::Bullet()
 {
+
     TextureLoader t;
     if (t.getTexture(getTag()) != nullptr)
     {
@@ -15,7 +19,7 @@ Bullet::Bullet()
     {
         this->m_texture = new sf::Texture();
 
-        if (!m_texture->loadFromFile("../Assets/Sprites/bulletSprite.png"))
+        if (!m_texture->loadFromFile("../Assets/Sprites/Cohetes.png"))
         {
             // Error loading texture
 
@@ -29,9 +33,12 @@ Bullet::Bullet()
 
     this->setPosition(0, 0);
     this->setOrigin(0, 0);
+  /*  this->m_AnimChanger.restart();
+    this->m_animationSwitch = true;*/
     m_sprite.setPosition(0, 0);
     m_sprite.setTexture(*this->m_texture);
     m_sprite.setOrigin(0, 0);
+
 
 }
 
@@ -72,16 +79,17 @@ void Bullet::move(float x, float y)
 
 void Bullet::update(float dt)
 {
-      if (getPosition().y < -10)
+      if (getPosition().y <= -10 && !mIsMarkedForDeletion)
       {
           
           this->setPosition(0, 0);
           this->setVisibility(false);
+          this->mIsMarkedForDeletion = true;
           Player::bulletPool->add_one(this);   
       }
       else
       {
-          move(0, -(250 * dt));
+          move(0, -(1000 * dt));
       
       }
 }
@@ -96,6 +104,35 @@ void Bullet::draw(sf::RenderTarget& target, sf::RenderStates states) const
     }
    
 }
+
+
+bool Bullet::collidesWith(const Gameobject& other) const
+{
+   
+    if(this->m_sprite.getGlobalBounds().intersects(other.m_sprite.getGlobalBounds()))
+    {
+        return true;
+    }
+
+    return false;
+};
+
+void Bullet::handleCollision(Gameobject& other)
+{
+    if(other.getTag() == "Enemy")
+    {
+        this->setPosition(0, 0);
+        this->setVisibility(false);
+        this->mIsMarkedForDeletion = true;
+        Player::bulletPool->add_one(this);
+        other.setPosition(sf::Vector2f(0, 0));
+        other.setVisibility(false);
+        other.mIsMarkedForDeletion = true;
+        
+
+    }
+};
+
 bool Bullet::isMarkedForDeletion() const
 {
     return Gameobject::mIsMarkedForDeletion;

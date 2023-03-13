@@ -1,5 +1,5 @@
 #include "world.h"
-
+#include <iostream>
 World::World(sf::RenderWindow& window) :
     mWindow(window)
 {
@@ -39,7 +39,7 @@ void World::deleteObjects()
     auto it = objects.begin();
     while (it != objects.end()) {
         if ((*it)->isMarkedForDeletion()) {
-            delete (*it); // Delete object from heap
+             // Delete object from heap
             it = objects.erase(it); // Remove object from vector
         }
         else {
@@ -50,19 +50,20 @@ void World::deleteObjects()
 
 void World::CheckCollisions()
 {
-    // for (int i = 0; i < objects.size(); i++) {
-    //    for (int j = i + 1; j < objects.size(); j++) {
-    //        if (objects[i]->collidesWith(*objects[j])) {
-    //            // Handle the collision between the two game objects
-    //            objects[i]->handleCollision(*objects[j]);
-    //            objects[j]->handleCollision(*objects[i]);
-    //        }
-    //    }
-    //}
+     for (int i = 0; i < objects.size(); i++) {
+        for (int j = i + 1; j < objects.size(); j++) {
+            if (objects[i]->m_sprite.getGlobalBounds().intersects(objects[j]->m_sprite.getGlobalBounds())) {
+                // Handle the collision between the two game objects
+                objects[i]->handleCollision(*objects[j]);
+                objects[j]->handleCollision(*objects[i]);
+            }
+        }
+    }
 }
 
 void World::AddPendingObjects()
 {
+    
     for (auto gameobject : this->pendingobjects) {
         objects.push_back(gameobject);
 

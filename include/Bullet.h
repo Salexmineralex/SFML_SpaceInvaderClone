@@ -22,14 +22,18 @@ public:
     void setPosition(float x, float y);
     void move(float offsetX, float offsetY);
 
+    bool collidesWith(const Gameobject& other) const override;
+    void handleCollision(Gameobject& other) override;
+
 private:
-    static int vecescreadaunabala;
 
     // Atributos
-    sf::Sprite m_sprite;
 
-    sf::Texture* m_texture;
-
-    //Methods
+    //Anim Attributes
+    //enum class BULLET_ENUM_STATES{IDLE,PROP,PROP2};
+    //int m_CurrentAnim;
+    //sf::Clock m_AnimChanger;
+    //sf::IntRect m_actualFrame;
+    //bool m_animationSwitch;
 
 };

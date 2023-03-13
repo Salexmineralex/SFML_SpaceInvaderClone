@@ -79,6 +79,8 @@ bool Enemy::isMarkedForDeletion() const
 
 void Enemy::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-    
-    target.draw(m_sprite, states);
+    if(this->mVisibility)
+    {
+        target.draw(m_sprite, states);
+    }
 };
