@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <gameobject.h>
+#include "ObjectPooler.h"
 #pragma once
 
 class Bullet : public Gameobject {
@@ -22,6 +23,7 @@ public:
     void move(float offsetX, float offsetY);
 
 private:
+    static int vecescreadaunabala;
 
     // Atributos
     sf::Sprite m_sprite;

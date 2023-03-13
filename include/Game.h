@@ -2,6 +2,10 @@
 #include <SFML/Graphics.hpp>
 #include "World.h"
 #include "TextureLoader.h"
+#include "world.h"
+#include "player.h"
+#include "enemySpawner.h"
+#include "UIManager.h"
 
 class Game {
 public:

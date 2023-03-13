@@ -1,9 +1,11 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "gameobject.h"
+#include "ObjectPooler.h"
 #include <vector>
 #include "world.h"
 #include "Enemy.h"
+#include "game.h"
 class EnemySpawner : public Gameobject {
 public:
 
@@ -36,7 +38,7 @@ private:
     std::vector<Enemy*> enemyGrid;
     World& m_world;
     sf::RenderWindow& m_window;
-
+    ObjectPooler<Enemy> enemyPool;
     //Methods
     void spawn(int level);
 

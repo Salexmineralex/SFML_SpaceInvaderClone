@@ -34,6 +34,9 @@
     <ClCompile Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\source\TextureLoader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\source\ObjectPooler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\include\Enemy.h">
@@ -64,6 +67,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\include\TextureLoader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\include\ObjectPooler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

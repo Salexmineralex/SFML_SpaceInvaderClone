@@ -38,6 +38,11 @@ bool Gameobject::isMarkedForDeletion() const
     return mIsMarkedForDeletion;
 }
 
+void Gameobject::setVisibility(const bool visibility)
+{
+    Gameobject::mVisibility = visibility;
+}
+
 void Gameobject::setPosition(sf::Vector2f position)
 {
     sf::Transformable::setPosition(position);

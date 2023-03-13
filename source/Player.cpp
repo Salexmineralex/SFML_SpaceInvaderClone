@@ -2,6 +2,7 @@
 
 
 //Constructores
+ObjectPooler<Bullet>* Player::bulletPool;
 
 
 Player::Player(InputManager* inputManager, World& world, sf::RenderWindow& window):
@@ -10,6 +11,7 @@ Player::Player(InputManager* inputManager, World& world, sf::RenderWindow& windo
     m_world(world),
     m_window(window)
 {
+    this->bulletPool = new ObjectPooler<Bullet>(1);
 }
 
 Player::Player(InputManager* inputManager, World& world, sf::RenderWindow& window, float speed):
@@ -18,6 +20,7 @@ Player::Player(InputManager* inputManager, World& world, sf::RenderWindow& windo
     m_world(world),
     m_window(window)
 {
+    this->bulletPool = new ObjectPooler<Bullet>(1);
 }
 
 float Player::getSpeed() const
@@ -59,7 +62,9 @@ void Player::update(float dt)
       
         isShooting = true;
 
-        Bullet* b = new Bullet();
+        Bullet* b = bulletPool->get_one();
+
+        b->setVisibility(true);
 
         b->setPosition(getPosition().x + b->getTexture()->getSize().x/4, getPosition().y-20);
 

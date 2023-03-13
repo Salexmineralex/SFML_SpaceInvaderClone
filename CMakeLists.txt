@@ -20,6 +20,7 @@ include/Gameobject.h
 include/InputManager.h
 include/EnemySpawner.h
 include/TextureLoader.h
+include/ObjectPooler.h
 )
 
 set(PROJECT_SOURCES 
@@ -34,6 +35,7 @@ source/Gameobject.cpp
 source/InputManager.cpp
 source/EnemySpawner.cpp
 source/TextureLoader.cpp
+source/ObjectPooler.cpp
 )
 
 set(PROJECT_FILES 

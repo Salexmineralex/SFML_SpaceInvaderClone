@@ -1,13 +1,13 @@
 #include "enemySpawner.h"
-#include "Enemy.h"
-#include "game.h"
 #include <iostream>
 EnemySpawner::EnemySpawner(World& world, sf::RenderWindow& window):
     m_world(world),
-    m_window(window)
-    
+    m_window(window)   
 {
+    
     this->enemyGrid = std::vector<Enemy*>();
+    this->enemyPool = ObjectPooler<Enemy>(10);
+    
 }
 
 std::string EnemySpawner::getTag() const
@@ -89,7 +89,7 @@ void EnemySpawner::spawn(int level)
         for (size_t i = 0; i < 9 * level; i++)
         {
 
-            Enemy* p = new Enemy();
+            Enemy* p = this->enemyPool.get_one();
 
             p->setPosition(sf::Vector2f(m_window.getSize().x/2 - p->getTexture()->getSize().x * colum * 2.5, line));
 
@@ -97,7 +97,7 @@ void EnemySpawner::spawn(int level)
 
 
 
-            Enemy* g = new Enemy();
+            Enemy* g = this->enemyPool.get_one();
             g->setPosition(sf::Vector2f(m_window.getSize().x / 2 + p->getTexture()->getSize().x * colum * 2.5, line));
 
             enemyGrid.push_back(g);

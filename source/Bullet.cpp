@@ -1,6 +1,9 @@
 #include "Bullet.h"
 #include <iostream>
 #include "TextureLoader.h"
+#include "Player.h"
+int Bullet::vecescreadaunabala = 0;
+
 Bullet::Bullet()
 {
     TextureLoader t;
@@ -71,7 +74,10 @@ void Bullet::update(float dt)
 {
       if (getPosition().y < -10)
       {
-          this->mIsMarkedForDeletion = true;
+          
+          this->setPosition(0, 0);
+          this->setVisibility(false);
+          Player::bulletPool->add_one(this);   
       }
       else
       {
@@ -84,8 +90,11 @@ void Bullet::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
 
     //states.transform = getTransform();
-    
-    target.draw(m_sprite, states);
+    if(this->mVisibility)
+    {
+        target.draw(m_sprite, states);
+    }
+   
 }
 bool Bullet::isMarkedForDeletion() const
 {

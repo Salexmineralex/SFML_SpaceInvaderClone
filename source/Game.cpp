@@ -1,8 +1,4 @@
 #include "Game.h"
-#include "world.h"
-#include "player.h"
-#include "enemySpawner.h"
-#include "UIManager.h"
 
 UIManager* Game::uiManager;
 World* Game::world;

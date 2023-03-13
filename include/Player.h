@@ -4,15 +4,21 @@
 #include "InputManager.h"
 #include "world.h"
 #include "Bullet.h"
+#include "ObjectPooler.h"
 
 class Player : public Gameobject {
 public:
 
     //Constructors
+ 
     Player(InputManager* inputManager, World& world, sf::RenderWindow& window);
     Player(InputManager* inputManager, World& world, sf::RenderWindow& window ,float speed);
 
+    static ObjectPooler<Bullet>* bulletPool;
+
     //GetandSetters
+    void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+
     float getSpeed() const;
 
     bool getShooting() const;
@@ -40,5 +46,5 @@ private:
     World& m_world;
     sf::RenderWindow& m_window;
     //Metodos
-    void draw(sf::RenderTarget& target, sf::RenderStates states) const override ;
+ 
 };
