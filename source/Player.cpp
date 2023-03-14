@@ -33,7 +33,7 @@ Player::Player(InputManager* inputManager, World& world, sf::RenderWindow& windo
     }
 
 
-    this->life_progress_bar = ProgressBar();
+    this->life_progress_bar = ProgressBar("Life:");
     this->life_progress_bar.setPosition(sf::Vector2f(225,m_window.getSize().y - 50));
     Game::getUIManager()->addObject(&life_progress_bar);
     this->setPosition(0, 0);
