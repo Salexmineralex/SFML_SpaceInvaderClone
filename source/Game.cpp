@@ -1,10 +1,9 @@
 #include "Game.h"
-
+sf::Font Game::font = sf::Font();
 UIManager* Game::uiManager;
 World* Game::world;
-sf::Font font = sf::Font();
 int Game::actualLevel = 1;
-bool quitGame = false;
+bool Game::m_quitGame = false;
 
 Game::Game()
 {
@@ -55,6 +54,7 @@ void Game::init()
     {
         // error...
     }
+
 }
 
 void Game::handleEvents() {
@@ -71,7 +71,7 @@ void Game::handleEvents() {
 
 bool Game::wantsToQuitGame()
 {
-    return quitGame;
+    return m_quitGame;
 }
 
 
@@ -80,9 +80,9 @@ UIManager* Game::getUIManager()
     return uiManager;
 }
 
-sf::Font Game::getFont()
+sf::Font* Game::getFont()
 {
-    return font;
+    return &font;
 }
 
 
@@ -95,6 +95,11 @@ World* Game::getWorld()
 const int Game::getLevel()
 {
     return actualLevel;
+}
+
+void Game::setQuitGame(bool quitGame)
+{
+    m_quitGame = quitGame;
 }
 
 void Game::incrementLevel()

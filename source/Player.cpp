@@ -2,6 +2,7 @@
 #include <TextureLoader.h>
 
 
+
 //Constructores
 ObjectPooler<Bullet>* Player::bulletPool;
 
@@ -32,7 +33,9 @@ Player::Player(InputManager* inputManager, World& world, sf::RenderWindow& windo
     }
 
 
-
+    this->life_progress_bar = ProgressBar();
+    this->life_progress_bar.setPosition(sf::Vector2f(225,m_window.getSize().y - 50));
+    Game::getUIManager()->addObject(&life_progress_bar);
     this->setPosition(0, 0);
     this->setOrigin(0, 0);
     m_sprite.setPosition(0, 0);
@@ -102,16 +105,22 @@ std::string Player::getTag() const
 void Player::update(float dt)
 {
 
+    if(this->life_progress_bar.getPercentage() <= 0)
+    {
+    
+    }
+
     if(m_InputManager->GetKeyPressed(sf::Keyboard::Left) && getPosition().x > 0)
     {
         this->move(-getSpeed() * dt, 0.0f);
     }
-    if(m_InputManager->GetKeyPressed(sf::Keyboard::Right) && getPosition().x < m_window.getSize().x-20)
+    if(m_InputManager->GetKeyPressed(sf::Keyboard::Right) && getPosition().x < m_window.getSize().x-m_texture->getSize().x)
     {
         this->move(getSpeed() * dt, 0.0f);
     }
     if (m_InputManager->GetKeyPressed(sf::Keyboard::Space) && !isShooting)
     {
+        life_progress_bar.setPercentage(life_progress_bar.getPercentage() - 10);
       
         isShooting = true;
 

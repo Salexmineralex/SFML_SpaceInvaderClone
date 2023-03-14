@@ -4,19 +4,20 @@
 UIManager::UIManager(sf::RenderWindow& window) :
     mWindow(window)
 {
-    this->objects = std::vector<sf::Text*>();
-    this->pendingobjects = std::vector<sf::Text*>();
+    this->objects = std::vector<UIGameobject*>();
+    this->pendingobjects = std::vector<UIGameobject*>();
 }
 
 void UIManager::update(float dt)
 {
+    deleteObjects();
     for (auto gameobject : this->pendingobjects) {
         objects.push_back(gameobject);
 
     }
 
     pendingobjects.clear();
-
+   
 
 }
 
@@ -25,19 +26,32 @@ void UIManager::draw()
 {
 
     
-    for (sf::Text* gameobject : this->objects) 
+    for (UIGameobject* gameobject : this->objects)
     {
         mWindow.draw(*gameobject);
         
     }
 
-    objects.clear();
 
 }
 
-void UIManager::addObject(sf::Text* object)
+void UIManager::addObject(UIGameobject* object)
 {
     this->pendingobjects.push_back(object);
+}
+
+void UIManager::deleteObjects()
+{
+    auto it = objects.begin();
+    while (it != objects.end()) {
+        if ((*it)->isMarkedForDeletion()) {
+            
+            it = objects.erase(it); // Remove object from vector
+        }
+        else {
+            ++it;
+        }
+    }
 }
 
 

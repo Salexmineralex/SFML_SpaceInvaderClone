@@ -21,6 +21,9 @@ include/InputManager.h
 include/EnemySpawner.h
 include/TextureLoader.h
 include/ObjectPooler.h
+include/MyText.h
+include/ProgressBar.h
+include/UIGameobject.h
 )
 
 set(PROJECT_SOURCES 
@@ -36,6 +39,9 @@ source/InputManager.cpp
 source/EnemySpawner.cpp
 source/TextureLoader.cpp
 source/ObjectPooler.cpp
+source/MyText.cpp
+source/ProgressBar.cpp
+source/UIGameobject.cpp
 )
 
 set(PROJECT_FILES 

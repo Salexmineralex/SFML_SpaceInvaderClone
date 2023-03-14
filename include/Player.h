@@ -5,6 +5,8 @@
 #include "world.h"
 #include "Bullet.h"
 #include "ObjectPooler.h"
+#include "Game.h"
+#include "ProgressBar.h"
 
 class Player : public Gameobject {
 public:
@@ -52,6 +54,8 @@ private:
     // Atributos
     float m_speed = 10000;
     float secondsToShoot = 0;
+    int score = 0;
+    ProgressBar life_progress_bar;
     bool isShooting = false;
     InputManager* m_InputManager;
     World& m_world;

@@ -1,11 +1,14 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "MyText.h"
 #include "gameobject.h"
 #include "ObjectPooler.h"
 #include <vector>
 #include "world.h"
 #include "Enemy.h"
 #include "game.h"
+#include <iostream>
+#include <math.h>
 class EnemySpawner : public Gameobject {
 public:
 
@@ -17,7 +20,7 @@ public:
 
     //Methods
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
-    void createText(std::string str);
+    void createText();
     void createCountdown(float dt);
     void setPosition(float x, float y);
     void move(float offsetX, float offsetY);
@@ -39,6 +42,7 @@ private:
     World& m_world;
     sf::RenderWindow& m_window;
     ObjectPooler<Enemy> enemyPool;
+    MyText* my_countdown_text;
     //Methods
     void spawn(int level);
 

@@ -5,6 +5,7 @@
 #include "player.h"
 #include "enemySpawner.h"
 #include "UIManager.h"
+#include "ProgressBar.h"
 
 class Game {
 public:
@@ -22,6 +23,9 @@ public:
     static sf::Font* getFont();
     static void incrementLevel();
     static const int getLevel();
+    static void setQuitGame(bool quitGame);
+
+
     //Methods
     bool wantsToQuitGame();
 
@@ -34,14 +38,10 @@ private:
     sf::RenderWindow m_window;
     static UIManager* uiManager;
     static World* world;
-    static sf::Font* font;
+    static sf::Font font;
     static int actualLevel;
- 
-
-
-    //static bool quitGame;
+    static bool m_quitGame;
 
     //Methods
-    //static void setQuitGame(bool quitGame);
     void handleEvents();
 };

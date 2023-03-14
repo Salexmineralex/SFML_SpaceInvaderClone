@@ -1,5 +1,5 @@
 #include "enemySpawner.h"
-#include <iostream>
+
 EnemySpawner::EnemySpawner(World& world, sf::RenderWindow& window):
     m_world(world),
     m_window(window)   
@@ -7,6 +7,9 @@ EnemySpawner::EnemySpawner(World& world, sf::RenderWindow& window):
     
     this->enemyGrid = std::vector<Enemy*>();
     this->enemyPool = ObjectPooler<Enemy>(10);
+    this->my_countdown_text = new MyText();
+    createText();
+    Game::getUIManager()->addObject(my_countdown_text);
     
 }
 
@@ -20,8 +23,10 @@ void EnemySpawner::update(float dt)
 {
     deleteObjects();
     CheckLost();
-    if (enemydeltaClock >= 3 )
+    
+    if (enemydeltaClock >= 3.6609*exp(-0.199*Game::getLevel() ))
     {
+        
         if (move_down)
         {
             for (int i = 0; i < enemyGrid.size(); i++)
@@ -111,7 +116,7 @@ void EnemySpawner::spawn(int level)
 
             colum++;
 
-            if (p->getPosition().x <= 150)
+            if (p->getPosition().x <= 250)
             {
                 /*    Enemies p = Enemies();
                     p.setPosition(400 - (p.getTexture()->getSize().x * 2.5 * colum + 1), line);
@@ -123,7 +128,7 @@ void EnemySpawner::spawn(int level)
 
          }
 
-        std::cout << "AS";
+
    
 };
 
@@ -168,31 +173,25 @@ void EnemySpawner::draw(sf::RenderTarget& target, sf::RenderStates states) const
     
 }
 
-void EnemySpawner::createText(std::string str)
+void EnemySpawner::createText()
 {
 
-    sf::Text* text = new sf::Text();
 
-    text->setFont(*Game::getFont());
+    my_countdown_text->getText()->setFont(*Game::getFont());
 
-    text->setCharacterSize(100);
+    my_countdown_text->getText()->setCharacterSize(100);
 
-    text->setFillColor(sf::Color::Green);
+    my_countdown_text->getText()->setFillColor(sf::Color::Green);
 
 
-    text->setStyle(sf::Text::Bold);
+    my_countdown_text->getText()->setStyle(sf::Text::Bold);
 
 
     //text->setOrigin(text->getGlobalBounds().width / 2, text->getGlobalBounds().height / 2);
-    text->setOrigin(text->getGlobalBounds().width, text->getGlobalBounds().height / 2.f);
-    text->setPosition(m_window.getView().getCenter());
 
-   
-    text->setString(str);
-    Game g;
-    g.getUIManager()->addObject(text);
-
-    
+    my_countdown_text->setPosition(m_window.getView().getCenter());
+    my_countdown_text->setOrigin(sf::Vector2f(my_countdown_text->getText()->getGlobalBounds().width, my_countdown_text->getText()->getGlobalBounds().height / 2.f));
+ 
 }
 
 void EnemySpawner::createCountdown(float dt)
@@ -200,23 +199,25 @@ void EnemySpawner::createCountdown(float dt)
 
     if (dt <= 4 && have_to_spawn)
     {
+        my_countdown_text->setVisibility(true);
         if (dt < 1)
         {
-            Game g;
-            createText("Level" + std::to_string(g.getLevel()));
+            
+            my_countdown_text->getText()->setString("Level" + std::to_string(Game::getLevel()));
         }
         else
         {
             int seconds = (static_cast<int>(dt));
-            createText(std::to_string(seconds));
+            my_countdown_text->getText()->setString(std::to_string(seconds));
         }
 
     }
     else if (have_to_spawn)
     {
-        Game g;
-        spawn(g.getLevel());
+      
+        spawn(Game::getLevel());
         have_to_spawn = false;
+        my_countdown_text->setVisibility(false);
     }
 }
 
