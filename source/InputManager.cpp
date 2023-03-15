@@ -1,7 +1,6 @@
 #include "InputManager.h"
 
-InputManager::InputManager(sf::RenderWindow& window):
-	m_window(window)
+InputManager::InputManager()
 {
 }
 

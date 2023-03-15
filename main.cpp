@@ -12,7 +12,7 @@ int main()
 
     while (game.wantsToQuitGame() == false)
     {
-        game.run();
+        game.update();
     }
 
  

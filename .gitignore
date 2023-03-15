@@ -11,7 +11,6 @@
 *.userprefs
 
 # Build results
-build/
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
@@ -193,7 +192,7 @@ orleans.codegen.cs
 
 # RIA/Silverlight projects
 Generated_Code/
-
+build/
 # Backup & report files from converting an old project file
 # to a newer Visual Studio version. Backup files are not needed,
 # because we have git ;-)

@@ -5,25 +5,31 @@
 #include "player.h"
 #include "enemySpawner.h"
 #include "UIManager.h"
-#include "ProgressBar.h"
+#include "ScoreLifeManager.h"
 
 class Game {
 public:
     //Constructor
     Game();
-
+    ~Game();
     //Main~
-    void run();
+    void update();
     void init();
 
     //GetAndSet
-    
-    static UIManager* getUIManager();
-    static World* getWorld();
-    static sf::Font* getFont();
-    static void incrementLevel();
-    static const int getLevel();
-    static void setQuitGame(bool quitGame);
+    sf::RenderWindow* getWindow();
+    UIManager* getUIManager();
+    World* getWorld();
+    InputManager* getInputManager();
+    ScoreLifeManager* getScoreLifeManager();
+   
+    sf::Font* getFont();
+
+    void incrementLevel();
+    const int getLevel();
+    void setQuitGame(bool quitGame);
+
+    static Game* getInstance();
 
 
     //Methods
@@ -36,11 +42,20 @@ private:
 
     //Attributes
     sf::RenderWindow m_window;
-    static UIManager* uiManager;
-    static World* world;
-    static sf::Font font;
-    static int actualLevel;
-    static bool m_quitGame;
+
+    UIManager* m_uiManager;
+    World* m_world;
+    InputManager* m_inputManager;
+    ScoreLifeManager* m_scoreLifeManager;
+
+    sf::Clock m_clock;
+    sf::Sprite m_background;
+    sf::Font m_font;
+    int m_actualGameLevel;
+    bool m_quitGame;
+
+    //Instance
+    static Game* game;
 
     //Methods
     void handleEvents();

@@ -4,14 +4,11 @@
 
 
 //Constructores
-ObjectPooler<Bullet>* Player::bulletPool;
+ObjectPooler<Bullet>* Player::m_bulletObjectPool;
 
 
-Player::Player(InputManager* inputManager, World& world, sf::RenderWindow& window):
-    m_speed(1000),
-    m_InputManager(inputManager),
-    m_world(world),
-    m_window(window)
+Player::Player():
+    m_speed(1000)
 {
     TextureLoader t;
     if (t.getTexture(getTag()) != nullptr)
@@ -33,22 +30,16 @@ Player::Player(InputManager* inputManager, World& world, sf::RenderWindow& windo
     }
 
 
-    this->life_progress_bar = ProgressBar("Life:");
-    this->life_progress_bar.setPosition(sf::Vector2f(225,m_window.getSize().y - 50));
-    Game::getUIManager()->addObject(&life_progress_bar);
     this->setPosition(0, 0);
     this->setOrigin(0, 0);
     m_sprite.setPosition(0, 0);
     m_sprite.setTexture(*this->m_texture);
     m_sprite.setOrigin(0, 0);
-    this->bulletPool = new ObjectPooler<Bullet>(3);
+    this->m_bulletObjectPool = new ObjectPooler<Bullet>(3);
 }
 
-Player::Player(InputManager* inputManager, World& world, sf::RenderWindow& window, float speed):
-    m_speed(speed),
-    m_InputManager(inputManager),
-    m_world(world),
-    m_window(window)
+Player::Player(float speed):
+    m_speed(speed)
 {
     TextureLoader t;
     if (t.getTexture(getTag()) != nullptr)
@@ -76,7 +67,14 @@ Player::Player(InputManager* inputManager, World& world, sf::RenderWindow& windo
     m_sprite.setPosition(0, 0);
     m_sprite.setTexture(*this->m_texture);
     m_sprite.setOrigin(0, 0);
-    this->bulletPool = new ObjectPooler<Bullet>(3);
+    this->m_bulletObjectPool = new ObjectPooler<Bullet>(3);
+}
+
+Player::~Player()
+{
+    delete m_texture;
+    delete m_bulletObjectPool;
+ 
 }
 
 float Player::getSpeed() const
@@ -105,26 +103,26 @@ std::string Player::getTag() const
 void Player::update(float dt)
 {
 
-    if(this->life_progress_bar.getPercentage() <= 0)
+    if(Game::getInstance()->getScoreLifeManager()->getLife() <= 0)
     {
     
     }
 
-    if(m_InputManager->GetKeyPressed(sf::Keyboard::Left) && getPosition().x > 0)
+    if(Game::getInstance()->getInputManager()->GetKeyPressed(sf::Keyboard::Left) && getPosition().x > 0)
     {
         this->move(-getSpeed() * dt, 0.0f);
     }
-    if(m_InputManager->GetKeyPressed(sf::Keyboard::Right) && getPosition().x < m_window.getSize().x-m_texture->getSize().x)
+    if(Game::getInstance()->getInputManager()->GetKeyPressed(sf::Keyboard::Right) && getPosition().x < Game::getInstance()->getWindow()->getSize().x-m_texture->getSize().x)
     {
         this->move(getSpeed() * dt, 0.0f);
     }
-    if (m_InputManager->GetKeyPressed(sf::Keyboard::Space) && !isShooting)
+    if (Game::getInstance()->getInputManager()->GetKeyPressed(sf::Keyboard::Space) && !isShooting)
     {
-        life_progress_bar.setPercentage(life_progress_bar.getPercentage() - 10);
+   
       
         isShooting = true;
 
-        Bullet* b = bulletPool->get_one();
+        Bullet* b = m_bulletObjectPool->get_one();
 
         b->mIsMarkedForDeletion = false;
 
@@ -132,7 +130,7 @@ void Player::update(float dt)
 
         b->setPosition(getPosition().x + b->getTexture()->getSize().x/4, getPosition().y-20);
 
-        m_world.addObject(b);
+        Game::getInstance()->getWorld()->addObject(b);
 
       
 
@@ -140,13 +138,13 @@ void Player::update(float dt)
 
     
 
-    if(secondsToShoot >= 2)
+    if(m_secondsToShoot >= 2)
     {
         isShooting = false;
-        secondsToShoot = 0;
+        m_secondsToShoot = 0;
     }
 
-    secondsToShoot += dt;
+    m_secondsToShoot += dt;
 
 
 }

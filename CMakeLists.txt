@@ -24,6 +24,8 @@ include/ObjectPooler.h
 include/MyText.h
 include/ProgressBar.h
 include/UIGameobject.h
+include/ScoreLifeManager.h
+include/ShootingEnemy.h
 )
 
 set(PROJECT_SOURCES 
@@ -42,6 +44,8 @@ source/ObjectPooler.cpp
 source/MyText.cpp
 source/ProgressBar.cpp
 source/UIGameobject.cpp
+source/ScoreLifeManager.cpp
+source/ShootingEnemy.cpp
 )
 
 set(PROJECT_FILES 
@@ -64,3 +68,5 @@ target_link_libraries(
  SpaceInvadersSFMLClone
  sfml-graphics
 )
+
+set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT ${PROJECT_NAME})

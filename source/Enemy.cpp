@@ -1,4 +1,5 @@
 #include "Enemy.h"
+#include "Game.h"
 #include <iostream>
 
 Enemy::Enemy()
@@ -32,6 +33,11 @@ Enemy::Enemy()
 
 
     
+}
+
+Enemy::~Enemy()
+{
+    delete m_texture;
 }
 
 const sf::Texture* Enemy::getTexture()
@@ -75,6 +81,25 @@ void Enemy::update(float dt)
 bool Enemy::isMarkedForDeletion() const
 {
     return Gameobject::mIsMarkedForDeletion;
+}
+
+bool Enemy::collidesWith(const Gameobject& other) const
+{
+    return true;
+}
+
+void Enemy::handleCollision(Gameobject& other)
+{
+
+    if(other.getTag() == "Bullet")
+    {
+        setPosition(sf::Vector2f(0, 0));
+        setVisibility(false);
+        mIsMarkedForDeletion = true;
+        Game::getInstance()->getScoreLifeManager()->addScore(m_score);
+
+    }
+
 }
 
 void Enemy::draw(sf::RenderTarget& target, sf::RenderStates states) const

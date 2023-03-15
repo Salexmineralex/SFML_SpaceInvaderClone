@@ -13,17 +13,16 @@ public:
 
     //Constructors
  
-    Player(InputManager* inputManager, World& world, sf::RenderWindow& window);
-    Player(InputManager* inputManager, World& world, sf::RenderWindow& window ,float speed);
+    Player();
+    Player(float speed);
+    ~Player();
 
-    static ObjectPooler<Bullet>* bulletPool;
+    static ObjectPooler<Bullet>* m_bulletObjectPool;
 
     //GetandSetters
     const sf::Texture* getTexture();
 
     const sf::Sprite getSprite();
-
-    void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 
     float getSpeed() const;
 
@@ -36,6 +35,8 @@ public:
     std::string getTag() const;
 
     //Methods
+    void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+
     void update(float dt) override;
    
     bool isMarkedForDeletion() const ;
@@ -47,19 +48,14 @@ public:
     void move(float offsetX, float offsetY);
 
     virtual bool collidesWith(const Gameobject& other) const override;
+
     virtual void handleCollision(Gameobject& other) override;
 
 private:
 
     // Atributos
     float m_speed = 10000;
-    float secondsToShoot = 0;
-    int score = 0;
-    ProgressBar life_progress_bar;
+    float m_secondsToShoot = 0;
     bool isShooting = false;
-    InputManager* m_InputManager;
-    World& m_world;
-    sf::RenderWindow& m_window;
 
- 
 };

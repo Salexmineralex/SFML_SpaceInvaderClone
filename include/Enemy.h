@@ -7,7 +7,7 @@ public:
 
     //Constructors
     Enemy();
-    
+    ~Enemy();
 
 
     //GetandSetters
@@ -22,11 +22,13 @@ public:
     void update(float dt) override;
     bool isMarkedForDeletion() const;
 
+    bool collidesWith(const Gameobject& other) const override;
+    void handleCollision(Gameobject& other) override;
 
 private:
 
     // Atributos
-
+    int m_score = 10;
 
     
 };

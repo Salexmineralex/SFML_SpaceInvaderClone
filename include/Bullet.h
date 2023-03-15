@@ -8,7 +8,7 @@ public:
 
     //Constructors
     Bullet();
-
+    ~Bullet();
 
     //GetandSetters
     const sf::Texture* getTexture();

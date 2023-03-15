@@ -6,12 +6,12 @@
 class UIManager
 {
 public:
-    UIManager(sf::RenderWindow& window);
+    UIManager();
 
 
     //Methods
     void update(float dt);
-    void draw();
+    void draw(sf::RenderWindow& window);
 
     void addObject(UIGameobject* object);
 
@@ -19,8 +19,8 @@ public:
 
 
 private:
-    sf::RenderWindow& mWindow;
-    std::vector<UIGameobject*> objects;
-    std::vector<UIGameobject*> pendingobjects;
+
+    std::vector<UIGameobject*> m_drawableobjects;
+    std::vector<UIGameobject*> m_pendingobjects;
     // other game objects and variables
 };

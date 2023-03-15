@@ -12,7 +12,6 @@ public:
 	std::string getTag() const;
 
 	void setPosition(sf::Vector2f position);
-
 	void setOrigin(sf::Vector2f position);
 
 	sf::Text* getText();
@@ -20,7 +19,7 @@ public:
 	
 private:
 
-	sf::Text actualText;
+	sf::Text m_actualText;
 
 };
 

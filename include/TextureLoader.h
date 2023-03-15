@@ -13,5 +13,5 @@ public:
 
 private:
 
-    static std::unordered_map<std::string, sf::Texture*> Textures;
+    static std::unordered_map<std::string, sf::Texture*> m_Textures;
 };

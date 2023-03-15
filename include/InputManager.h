@@ -5,12 +5,12 @@ class InputManager
 {
 public:
    
-	InputManager(sf::RenderWindow& window);
+	InputManager();
 
 	bool GetKeyPressed(sf::Keyboard::Key key);
 
 private:
 
-	sf::RenderWindow& m_window;
+
 
 };

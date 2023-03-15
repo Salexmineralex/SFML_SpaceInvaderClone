@@ -42,6 +42,11 @@ Bullet::Bullet()
 
 }
 
+Bullet::~Bullet()
+{
+    delete m_texture;
+}
+
 
 
 const sf::Texture* Bullet::getTexture()
@@ -85,7 +90,7 @@ void Bullet::update(float dt)
           this->setPosition(0, 0);
           this->setVisibility(false);
           this->mIsMarkedForDeletion = true;
-          Player::bulletPool->add_one(this);   
+          Player::m_bulletObjectPool->add_one(this);   
       }
       else
       {
@@ -124,12 +129,7 @@ void Bullet::handleCollision(Gameobject& other)
         this->setPosition(0, 0);
         this->setVisibility(false);
         this->mIsMarkedForDeletion = true;
-        Player::bulletPool->add_one(this);
-        other.setPosition(sf::Vector2f(0, 0));
-        other.setVisibility(false);
-        other.mIsMarkedForDeletion = true;
-        
-
+        Player::m_bulletObjectPool->add_one(this);
     }
 };
 

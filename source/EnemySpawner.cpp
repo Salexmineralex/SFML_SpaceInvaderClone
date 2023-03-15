@@ -1,16 +1,20 @@
 #include "enemySpawner.h"
 
-EnemySpawner::EnemySpawner(World& world, sf::RenderWindow& window):
-    m_world(world),
-    m_window(window)   
+EnemySpawner::EnemySpawner() 
 {
     
-    this->enemyGrid = std::vector<Enemy*>();
-    this->enemyPool = ObjectPooler<Enemy>(10);
-    this->my_countdown_text = new MyText();
+    this->m_enemyGrid = std::vector<Enemy*>();
+    this->m_enemyObjectPool = ObjectPooler<Enemy>(10);
+    this->m_countdown_text = new MyText();
     createText();
-    Game::getUIManager()->addObject(my_countdown_text);
+
+    Game::getInstance()->getUIManager()->addObject(m_countdown_text);
     
+}
+
+EnemySpawner::~EnemySpawner()
+{
+    delete m_countdown_text;
 }
 
 std::string EnemySpawner::getTag() const
@@ -24,15 +28,15 @@ void EnemySpawner::update(float dt)
     deleteObjects();
     CheckLost();
     
-    if (enemydeltaClock >= 3.6609*exp(-0.199*Game::getLevel() ))
+    if (m_enemydeltaClock >= 3.6609*exp(-0.199*Game::getInstance()->getLevel() ))
     {
         
         if (move_down)
         {
-            for (int i = 0; i < enemyGrid.size(); i++)
+            for (int i = 0; i < m_enemyGrid.size(); i++)
             {
              
-                enemyGrid[i]->move(0, 100);
+                m_enemyGrid[i]->move(0, 100);
 
             }
             move_down = false;
@@ -41,11 +45,11 @@ void EnemySpawner::update(float dt)
         else if (!move_to_left)
         {
             
-            for (int i = 0; i < enemyGrid.size(); i++)
+            for (int i = 0; i < m_enemyGrid.size(); i++)
             {
-                enemyGrid[i]->move(35, 0);
+                m_enemyGrid[i]->move(35, 0);
 
-                if (enemyGrid[i]->getPosition().x+ enemyGrid[i]->getTexture()->getSize().x > m_window.getSize().x - enemyGrid[i]->getTexture()->getSize().x)
+                if (m_enemyGrid[i]->getPosition().x+ m_enemyGrid[i]->getTexture()->getSize().x > Game::getInstance()->getWindow()->getSize().x - m_enemyGrid[i]->getTexture()->getSize().x)
                 {
                     move_to_left = true;
                     move_down = true;
@@ -56,13 +60,13 @@ void EnemySpawner::update(float dt)
         else
         {
 
-            for (int i = 0; i < enemyGrid.size(); i++)
+            for (int i = 0; i < m_enemyGrid.size(); i++)
             {
 
 
-                enemyGrid[i]->move(-35, 0);
+                m_enemyGrid[i]->move(-35, 0);
                 
-                if (enemyGrid[i]->getPosition().x < 0 + enemyGrid[i]->getTexture()->getSize().x)
+                if (m_enemyGrid[i]->getPosition().x < 0 + m_enemyGrid[i]->getTexture()->getSize().x)
                 {
                     move_to_left = false;
                     move_down = true;
@@ -71,19 +75,19 @@ void EnemySpawner::update(float dt)
 
         }
 
-        enemydeltaClock = 0;
+        m_enemydeltaClock = 0;
     }
 
-    if(enemyGrid.size() <= 0 && have_to_spawn == false)
+    if(m_enemyGrid.size() <= 0 && have_to_spawn == false)
     {
-        Game::incrementLevel();
+        Game::getInstance()->incrementLevel();
         this->want_to_spawn();
     }
 
-    createCountdown(countdowndeltaClock);
+    createCountdown(m_countdowndeltaClock);
 
-    enemydeltaClock += dt;
-    countdowndeltaClock += dt;
+    m_enemydeltaClock += dt;
+    m_countdowndeltaClock += dt;
 }
 
 void EnemySpawner::spawn(int level)
@@ -96,23 +100,23 @@ void EnemySpawner::spawn(int level)
         for (size_t i = 0; i < 2 * level; i++)
         {
 
-            Enemy* p = this->enemyPool.get_one();
+            Enemy* p = this->m_enemyObjectPool.get_one();
             p->mIsMarkedForDeletion = false;
             p->setVisibility(true);
-            m_world.addObject(p);
-            p->setPosition(sf::Vector2f((m_window.getSize().x/2 - p->getTexture()->getSize().x) - p->getTexture()->getSize().x * colum * 2.5, line));
+            Game::getInstance()->getWorld()->addObject(p);
+            p->setPosition(sf::Vector2f((Game::getInstance()->getWindow()->getSize().x/2 - p->getTexture()->getSize().x) - p->getTexture()->getSize().x * colum * 2.5, line));
 
-            enemyGrid.push_back(p);
+            m_enemyGrid.push_back(p);
 
 
 
-            Enemy* g = this->enemyPool.get_one();
+            Enemy* g = this->m_enemyObjectPool.get_one();
             g->mIsMarkedForDeletion = false;
             g->setVisibility(true);
-            m_world.addObject(g);
-            g->setPosition(sf::Vector2f((m_window.getSize().x / 2 + p->getTexture()->getSize().x) + p->getTexture()->getSize().x * colum * 2.5, line));
+            Game::getInstance()->getWorld()->addObject(g);
+            g->setPosition(sf::Vector2f((Game::getInstance()->getWindow()->getSize().x / 2 + p->getTexture()->getSize().x) + p->getTexture()->getSize().x * colum * 2.5, line));
 
-            enemyGrid.push_back(g);
+            m_enemyGrid.push_back(g);
 
             colum++;
 
@@ -134,12 +138,12 @@ void EnemySpawner::spawn(int level)
 
 void EnemySpawner::deleteObjects()
 {
-    auto it = enemyGrid.begin();
-    while (it != enemyGrid.end()) {
+    auto it = m_enemyGrid.begin();
+    while (it != m_enemyGrid.end()) {
         if ((*it)->isMarkedForDeletion()) {
             
-            enemyPool.add_one(*it);
-            it = enemyGrid.erase(it); // Remove object from vector
+            m_enemyObjectPool.add_one(*it);
+            it = m_enemyGrid.erase(it); // Remove object from vector
         }
         else {
             ++it;
@@ -149,9 +153,9 @@ void EnemySpawner::deleteObjects()
 
 void EnemySpawner::CheckLost()
 {
-    for (int i = 0; i < enemyGrid.size(); i++)
+    for (int i = 0; i < m_enemyGrid.size(); i++)
     {
-        if (enemyGrid[i]->getPosition().y >= m_window.getSize().y - 150)
+        if (m_enemyGrid[i]->getPosition().y >= Game::getInstance()->getWindow()->getSize().y - 150)
         {
             std::cout << "Lost";
         }
@@ -177,20 +181,20 @@ void EnemySpawner::createText()
 {
 
 
-    my_countdown_text->getText()->setFont(*Game::getFont());
+    m_countdown_text->getText()->setFont(*Game::getInstance()->getFont());
 
-    my_countdown_text->getText()->setCharacterSize(100);
+    m_countdown_text->getText()->setCharacterSize(100);
 
-    my_countdown_text->getText()->setFillColor(sf::Color::Green);
+    m_countdown_text->getText()->setFillColor(sf::Color::Green);
 
 
-    my_countdown_text->getText()->setStyle(sf::Text::Bold);
+    m_countdown_text->getText()->setStyle(sf::Text::Bold);
 
 
     //text->setOrigin(text->getGlobalBounds().width / 2, text->getGlobalBounds().height / 2);
 
-    my_countdown_text->setPosition(m_window.getView().getCenter());
-    my_countdown_text->setOrigin(sf::Vector2f(my_countdown_text->getText()->getGlobalBounds().width, my_countdown_text->getText()->getGlobalBounds().height / 2.f));
+    m_countdown_text->setPosition(Game::getInstance()->getWindow()->getView().getCenter());
+    m_countdown_text->setOrigin(sf::Vector2f(m_countdown_text->getText()->getGlobalBounds().width, m_countdown_text->getText()->getGlobalBounds().height / 2.f));
  
 }
 
@@ -199,25 +203,25 @@ void EnemySpawner::createCountdown(float dt)
 
     if (dt <= 4 && have_to_spawn)
     {
-        my_countdown_text->setVisibility(true);
+        m_countdown_text->setVisibility(true);
         if (dt < 1)
         {
             
-            my_countdown_text->getText()->setString("Level" + std::to_string(Game::getLevel()));
+            m_countdown_text->getText()->setString("Level" + std::to_string(Game::getInstance()->getLevel()));
         }
         else
         {
             int seconds = (static_cast<int>(dt));
-            my_countdown_text->getText()->setString(std::to_string(seconds));
+            m_countdown_text->getText()->setString(std::to_string(seconds));
         }
 
     }
     else if (have_to_spawn)
     {
       
-        spawn(Game::getLevel());
+        spawn(Game::getInstance()->getLevel());
         have_to_spawn = false;
-        my_countdown_text->setVisibility(false);
+        m_countdown_text->setVisibility(false);
     }
 }
 
@@ -225,7 +229,7 @@ void EnemySpawner::want_to_spawn()
 {
     this->have_to_spawn = true;
 
-    countdowndeltaClock = 0;
+    m_countdowndeltaClock = 0;
 };
 
 void EnemySpawner::setPosition(float x, float y)

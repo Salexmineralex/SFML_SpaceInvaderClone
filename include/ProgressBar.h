@@ -7,11 +7,12 @@ class ProgressBar : public UIGameobject
 {
 public:
 
+	//Constructor
 	ProgressBar();
 	ProgressBar(std::string label);
+	~ProgressBar();
 
-
-	void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+	//Get&Setter
 	std::string getTag() const;
 
 	void setPosition(sf::Vector2f position);
@@ -22,22 +23,25 @@ public:
 
 	void setPercentage(int percentage);
 
-
 	ProgressBar* getProgressBar();
+
+	//Methods
+
+	void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
 
 
 private:
 
 	//Atributtes
-	sf::Sprite frame;
-	sf::Texture* texture_frame;
-	sf::Sprite progressBar;
-	sf::Texture* texture_progressBar;
+	sf::Sprite m_frame;
+	sf::Texture* m_texture_frame = nullptr;
+	sf::Sprite m_progressBar;
+	sf::Texture* m_texture_progressBar = nullptr;
 
 	MyText m_label;
 	
-	int actualPercentage;
+	int m_actualPercentage;
 
 	//Methods
 	void ProgressBar::create_m_Label();

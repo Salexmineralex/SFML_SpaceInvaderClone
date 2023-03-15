@@ -7,12 +7,11 @@
 class World
 {
 public:
-    World(sf::RenderWindow& window);
-
+    World();
 
     //Methods
     void update(float dt);
-    void draw();
+    void draw(sf::RenderWindow& window);
 
     void deleteObjects();
 
@@ -22,16 +21,9 @@ public:
 
     void addObject(Gameobject* object);
 
-
-    InputManager* getInputManager();
-    UIManager* getUIManager();
-
 private:
-    sf::RenderWindow& mWindow;
-    std::vector<Gameobject*> objects;
-    std::vector<Gameobject*> pendingobjects;
-    InputManager* m_InputManager;
-   
 
+    std::vector<Gameobject*> m_drawableobjects;
+    std::vector<Gameobject*> m_pendingobjects;
     // other game objects and variables
 };

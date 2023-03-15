@@ -9,7 +9,7 @@ public:
 	//Contructores
 	ObjectPooler();
 	ObjectPooler(const size_t N);
-
+	~ObjectPooler();
 	//Metodos
 
 	T* get_one();
@@ -49,6 +49,16 @@ ObjectPooler<T>::ObjectPooler(const size_t N)
 
 	}
 
+}
+
+template<typename T>
+ObjectPooler<T>::~ObjectPooler()
+{
+	/*while (!m_queue.empty()) {
+		T* ptr = m_queue.front();
+		m_queue.pop();
+		delete ptr;
+	}*/
 };
 
 template<typename T>

@@ -13,8 +13,8 @@ class EnemySpawner : public Gameobject {
 public:
 
     //Constructors
-    EnemySpawner(World& world, sf::RenderWindow& m_window);
-
+    EnemySpawner();
+    ~EnemySpawner();
     //GetAndSetters
     virtual std::string getTag() const;
 
@@ -33,16 +33,17 @@ public:
 private:
 
     // Atributos
-    float enemydeltaClock = 0;
-    float countdowndeltaClock = 0;
+    float m_enemydeltaClock = 0;
+    float m_countdowndeltaClock = 0;
+    std::vector<Enemy*> m_enemyGrid;
+    ObjectPooler<Enemy> m_enemyObjectPool;
+    MyText* m_countdown_text;
+
     bool move_down = false;
     bool move_to_left = false;
     bool have_to_spawn = false;
-    std::vector<Enemy*> enemyGrid;
-    World& m_world;
-    sf::RenderWindow& m_window;
-    ObjectPooler<Enemy> enemyPool;
-    MyText* my_countdown_text;
+
+
     //Methods
     void spawn(int level);
 

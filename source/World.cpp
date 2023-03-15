@@ -1,18 +1,17 @@
 #include "world.h"
 #include <iostream>
-World::World(sf::RenderWindow& window) :
-    mWindow(window)
+World::World()
 {
-    this->objects =  std::vector<Gameobject*>();
-    this->pendingobjects =  std::vector<Gameobject*>();
-    this->m_InputManager = new InputManager(window);
+    this->m_drawableobjects =  std::vector<Gameobject*>();
+    this->m_pendingobjects =  std::vector<Gameobject*>();
+ 
 }
 
 void World::update(float dt)
 {
     deleteObjects();
 
-    for (auto gameobject : this->objects) {
+    for (auto gameobject : this->m_drawableobjects) {
         gameobject->update(dt);
        
     }
@@ -24,23 +23,23 @@ void World::update(float dt)
 }
 
 
-void World::draw()
+void World::draw(sf::RenderWindow& window)
 {
 
-    for (auto& gameobject : this->objects) {
+    for (auto& gameobject : this->m_drawableobjects) {
 
-        gameobject->draw(mWindow);
+        gameobject->draw(window);
     }
 
 }
 
 void World::deleteObjects()
 {
-    auto it = objects.begin();
-    while (it != objects.end()) {
+    auto it = m_drawableobjects.begin();
+    while (it != m_drawableobjects.end()) {
         if ((*it)->isMarkedForDeletion()) {
              // Delete object from heap
-            it = objects.erase(it); // Remove object from vector
+            it = m_drawableobjects.erase(it); // Remove object from vector
         }
         else {
             ++it;
@@ -50,12 +49,12 @@ void World::deleteObjects()
 
 void World::CheckCollisions()
 {
-     for (int i = 0; i < objects.size(); i++) {
-        for (int j = i + 1; j < objects.size(); j++) {
-            if (objects[i]->m_sprite.getGlobalBounds().intersects(objects[j]->m_sprite.getGlobalBounds())) {
+     for (int i = 0; i < m_drawableobjects.size(); i++) {
+        for (int j = i + 1; j < m_drawableobjects.size(); j++) {
+            if (m_drawableobjects[i]->m_sprite.getGlobalBounds().intersects(m_drawableobjects[j]->m_sprite.getGlobalBounds())) {
                 // Handle the collision between the two game objects
-                objects[i]->handleCollision(*objects[j]);
-                objects[j]->handleCollision(*objects[i]);
+                m_drawableobjects[i]->handleCollision(*m_drawableobjects[j]);
+                m_drawableobjects[j]->handleCollision(*m_drawableobjects[i]);
             }
         }
     }
@@ -64,22 +63,17 @@ void World::CheckCollisions()
 void World::AddPendingObjects()
 {
     
-    for (auto gameobject : this->pendingobjects) {
-        objects.push_back(gameobject);
+    for (auto gameobject : this->m_pendingobjects) {
+        m_drawableobjects.push_back(gameobject);
 
     }
 
-    pendingobjects.clear();
+    m_pendingobjects.clear();
 }
 
 void World::addObject(Gameobject* object)
 {
-    this->pendingobjects.push_back(object);
+    this->m_pendingobjects.push_back(object);
 }
 
-
-InputManager* World::getInputManager()
-{
-    return this->m_InputManager;
-}
 
