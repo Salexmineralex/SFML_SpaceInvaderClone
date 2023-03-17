@@ -1,10 +1,10 @@
 #include "enemySpawner.h"
-
 EnemySpawner::EnemySpawner() 
 {
     
     this->m_enemyGrid = std::vector<Enemy*>();
     this->m_enemyObjectPool = ObjectPooler<Enemy>(10);
+    this->m_ShootingenemyObjectPool = ObjectPooler<ShootingEnemy>(5);
     this->m_countdown_text = new MyText();
     createText();
 
@@ -47,8 +47,9 @@ void EnemySpawner::update(float dt)
             
             for (int i = 0; i < m_enemyGrid.size(); i++)
             {
+               
                 m_enemyGrid[i]->move(35, 0);
-
+                
                 if (m_enemyGrid[i]->getPosition().x+ m_enemyGrid[i]->getTexture()->getSize().x > Game::getInstance()->getWindow()->getSize().x - m_enemyGrid[i]->getTexture()->getSize().x)
                 {
                     move_to_left = true;
@@ -100,7 +101,19 @@ void EnemySpawner::spawn(int level)
         for (size_t i = 0; i < 2 * level; i++)
         {
 
-            Enemy* p = this->m_enemyObjectPool.get_one();
+            Enemy* p = nullptr;
+            Enemy* g = nullptr;
+            
+            std::uniform_int_distribution<std::mt19937::result_type> uniformDistribution(1, 100);
+            int randomNumber = uniformDistribution(rng);
+            if(randomNumber <= Game::getInstance()->getLevel()* 4.9444f - 4.444f)
+            {
+                p = this->m_ShootingenemyObjectPool.get_one();
+            }else
+            {
+                p = this->m_enemyObjectPool.get_one();
+            }
+
             p->mIsMarkedForDeletion = false;
             p->setVisibility(true);
             Game::getInstance()->getWorld()->addObject(p);
@@ -108,9 +121,15 @@ void EnemySpawner::spawn(int level)
 
             m_enemyGrid.push_back(p);
 
+            if (uniformDistribution(rng) <= Game::getInstance()->getLevel() * m_shootingEnemyPercentSpawn)
+            {
+                g = this->m_ShootingenemyObjectPool.get_one();
+            }
+            else
+            {
+                g = this->m_enemyObjectPool.get_one();
+            }
 
-
-            Enemy* g = this->m_enemyObjectPool.get_one();
             g->mIsMarkedForDeletion = false;
             g->setVisibility(true);
             Game::getInstance()->getWorld()->addObject(g);
@@ -122,9 +141,6 @@ void EnemySpawner::spawn(int level)
 
             if (p->getPosition().x <= 250)
             {
-                /*    Enemies p = Enemies();
-                    p.setPosition(400 - (p.getTexture()->getSize().x * 2.5 * colum + 1), line);
-                    enemies.push_back(p);*/
 
                 line += p->getTexture()->getSize().y * 2;
                 colum = 0;
@@ -132,7 +148,7 @@ void EnemySpawner::spawn(int level)
 
          }
 
-
+    
    
 };
 

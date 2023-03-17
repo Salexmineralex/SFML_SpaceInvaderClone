@@ -26,6 +26,8 @@ include/ProgressBar.h
 include/UIGameobject.h
 include/ScoreLifeManager.h
 include/ShootingEnemy.h
+include/SpecialObject.h
+include/EnemyBullet.h
 )
 
 set(PROJECT_SOURCES 
@@ -46,6 +48,8 @@ source/ProgressBar.cpp
 source/UIGameobject.cpp
 source/ScoreLifeManager.cpp
 source/ShootingEnemy.cpp
+source/SpecialObject.cpp
+source/EnemyBullet.cpp
 )
 
 set(PROJECT_FILES 

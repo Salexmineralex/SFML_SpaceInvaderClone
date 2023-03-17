@@ -16,7 +16,6 @@ void World::update(float dt)
        
     }
 
-
     CheckCollisions();
     AddPendingObjects();
 

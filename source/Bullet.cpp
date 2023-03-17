@@ -3,10 +3,6 @@
 #include "TextureLoader.h"
 #include "Player.h"
 #include "Game.h"
-
-
-
-
 Bullet::Bullet()
 {
 
@@ -86,11 +82,7 @@ void Bullet::update(float dt)
 {
       if (getPosition().y <= -10 && !mIsMarkedForDeletion)
       {
-          
-          this->setPosition(0, 0);
-          this->setVisibility(false);
-          this->mIsMarkedForDeletion = true;
-          Player::m_bulletObjectPool->add_one(this);   
+          resetBullet();
       }
       else
       {
@@ -124,13 +116,18 @@ bool Bullet::collidesWith(const Gameobject& other) const
 
 void Bullet::handleCollision(Gameobject& other)
 {
-    if(other.getTag() == "Enemy")
+    if(other.getTag() == "Enemy" || other.getTag() == "ShootingEnemy")
     {
-        this->setPosition(0, 0);
-        this->setVisibility(false);
-        this->mIsMarkedForDeletion = true;
-        Player::m_bulletObjectPool->add_one(this);
+        resetBullet();
     }
+}
+void Bullet::resetBullet()
+{
+
+    this->setPosition(0, 0);
+    this->setVisibility(false);
+    this->mIsMarkedForDeletion = true;
+    Player::m_bulletObjectPool->add_one(this);
 };
 
 bool Bullet::isMarkedForDeletion() const

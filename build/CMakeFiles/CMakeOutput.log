@@ -9,7 +9,7 @@ The output was:
 Microsoft (R) Build Engine versión 17.2.1+52cd2da31 para .NET Framework
 Copyright (C) Microsoft Corporation. Todos los derechos reservados.
 
-Compilación iniciada a las 10/03/2023 13:04:37.
+Compilación iniciada a las 15/03/2023 17:33:19.
 Proyecto "C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\build\CMakeFiles\3.25.2\CompilerIdC\CompilerIdC.vcxproj" en nodo 1 (destinos predeterminados).
 PrepareForBuild:
   Creando directorio "Debug\".
@@ -35,7 +35,7 @@ Compilación correcta.
     0 Advertencia(s)
     0 Errores
 
-Tiempo transcurrido 00:00:01.37
+Tiempo transcurrido 00:00:04.16
 
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
@@ -54,7 +54,7 @@ The output was:
 Microsoft (R) Build Engine versión 17.2.1+52cd2da31 para .NET Framework
 Copyright (C) Microsoft Corporation. Todos los derechos reservados.
 
-Compilación iniciada a las 10/03/2023 13:04:39.
+Compilación iniciada a las 15/03/2023 17:33:24.
 Proyecto "C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\build\CMakeFiles\3.25.2\CompilerIdCXX\CompilerIdCXX.vcxproj" en nodo 1 (destinos predeterminados).
 PrepareForBuild:
   Creando directorio "Debug\".
@@ -80,7 +80,7 @@ Compilación correcta.
     0 Advertencia(s)
     0 Errores
 
-Tiempo transcurrido 00:00:00.79
+Tiempo transcurrido 00:00:01.26
 
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -90,86 +90,86 @@ Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" p
 The CXX compiler identification is MSVC, found in "C:/Users/Usuario/Desktop/Programacion en C++/SFML_Project/SFML_SpaceInvaderClone/build/CMakeFiles/3.25.2/CompilerIdCXX/CompilerIdCXX.exe"
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: C:/Users/Usuario/Desktop/Programacion en C++/SFML_Project/SFML_SpaceInvaderClone/build/CMakeFiles/CMakeScratch/TryCompile-lbb6ye
+Change Dir: C:/Users/Usuario/Desktop/Programacion en C++/SFML_Project/SFML_SpaceInvaderClone/build/CMakeFiles/CMakeScratch/TryCompile-cxnk4t
 
-Run Build Command(s):D:/Visual Studio Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_9aba9.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && Microsoft (R) Build Engine versión 17.2.1+52cd2da31 para .NET Framework
+Run Build Command(s):D:/Visual Studio Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_87260.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && Microsoft (R) Build Engine versión 17.2.1+52cd2da31 para .NET Framework
 Copyright (C) Microsoft Corporation. Todos los derechos reservados.
 
   Compilador de optimización de C/C++ de Microsoft (R) versión 19.32.31332 para x64
   CMakeCCompilerABI.c
   (C) Microsoft Corporation. Todos los derechos reservados.
-  cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_9aba9.dir\Debug\\" /Fd"cmTC_9aba9.dir\Debug\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "D:\CMake\share\cmake-3.25\Modules\CMakeCCompilerABI.c"
-  cmTC_9aba9.vcxproj -> C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\build\CMakeFiles\CMakeScratch\TryCompile-lbb6ye\Debug\cmTC_9aba9.exe
+  cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_87260.dir\Debug\\" /Fd"cmTC_87260.dir\Debug\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "D:\CMake\share\cmake-3.25\Modules\CMakeCCompilerABI.c"
+  cmTC_87260.vcxproj -> C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\build\CMakeFiles\CMakeScratch\TryCompile-cxnk4t\Debug\cmTC_87260.exe
 
 
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: C:/Users/Usuario/Desktop/Programacion en C++/SFML_Project/SFML_SpaceInvaderClone/build/CMakeFiles/CMakeScratch/TryCompile-9wwoqn
+Change Dir: C:/Users/Usuario/Desktop/Programacion en C++/SFML_Project/SFML_SpaceInvaderClone/build/CMakeFiles/CMakeScratch/TryCompile-43eo3b
 
-Run Build Command(s):D:/Visual Studio Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_cdf51.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && Microsoft (R) Build Engine versión 17.2.1+52cd2da31 para .NET Framework
+Run Build Command(s):D:/Visual Studio Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_1e3c8.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && Microsoft (R) Build Engine versión 17.2.1+52cd2da31 para .NET Framework
 Copyright (C) Microsoft Corporation. Todos los derechos reservados.
 
   Compilador de optimización de C/C++ de Microsoft (R) versión 19.32.31332 para x64
   CMakeCXXCompilerABI.cpp
   (C) Microsoft Corporation. Todos los derechos reservados.
-  cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_cdf51.dir\Debug\\" /Fd"cmTC_cdf51.dir\Debug\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "D:\CMake\share\cmake-3.25\Modules\CMakeCXXCompilerABI.cpp"
-  cmTC_cdf51.vcxproj -> C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\build\CMakeFiles\CMakeScratch\TryCompile-9wwoqn\Debug\cmTC_cdf51.exe
+  cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_1e3c8.dir\Debug\\" /Fd"cmTC_1e3c8.dir\Debug\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "D:\CMake\share\cmake-3.25\Modules\CMakeCXXCompilerABI.cpp"
+  cmTC_1e3c8.vcxproj -> C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\build\CMakeFiles\CMakeScratch\TryCompile-43eo3b\Debug\cmTC_1e3c8.exe
 
 
 
 Determining if the include file sys/types.h exists passed with the following output:
-Change Dir: C:/Users/Usuario/Desktop/Programacion en C++/SFML_Project/SFML_SpaceInvaderClone/build/CMakeFiles/CMakeScratch/TryCompile-o0dsyz
+Change Dir: C:/Users/Usuario/Desktop/Programacion en C++/SFML_Project/SFML_SpaceInvaderClone/build/CMakeFiles/CMakeScratch/TryCompile-i1oz41
 
-Run Build Command(s):D:/Visual Studio Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_da3e1.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && Microsoft (R) Build Engine versión 17.2.1+52cd2da31 para .NET Framework
+Run Build Command(s):D:/Visual Studio Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_a837e.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && Microsoft (R) Build Engine versión 17.2.1+52cd2da31 para .NET Framework
 Copyright (C) Microsoft Corporation. Todos los derechos reservados.
 
   Compilador de optimización de C/C++ de Microsoft (R) versión 19.32.31332 para x64
   CheckIncludeFile.c
   (C) Microsoft Corporation. Todos los derechos reservados.
-  cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_da3e1.dir\Debug\\" /Fd"cmTC_da3e1.dir\Debug\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\build\CMakeFiles\CMakeScratch\TryCompile-o0dsyz\CheckIncludeFile.c"
-  cmTC_da3e1.vcxproj -> C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\build\CMakeFiles\CMakeScratch\TryCompile-o0dsyz\Debug\cmTC_da3e1.exe
+  cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_a837e.dir\Debug\\" /Fd"cmTC_a837e.dir\Debug\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\build\CMakeFiles\CMakeScratch\TryCompile-i1oz41\CheckIncludeFile.c"
+  cmTC_a837e.vcxproj -> C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\build\CMakeFiles\CMakeScratch\TryCompile-i1oz41\Debug\cmTC_a837e.exe
 
 
 
 Determining if the include file stdint.h exists passed with the following output:
-Change Dir: C:/Users/Usuario/Desktop/Programacion en C++/SFML_Project/SFML_SpaceInvaderClone/build/CMakeFiles/CMakeScratch/TryCompile-6nmltr
+Change Dir: C:/Users/Usuario/Desktop/Programacion en C++/SFML_Project/SFML_SpaceInvaderClone/build/CMakeFiles/CMakeScratch/TryCompile-mts1g8
 
-Run Build Command(s):D:/Visual Studio Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_313de.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && Microsoft (R) Build Engine versión 17.2.1+52cd2da31 para .NET Framework
+Run Build Command(s):D:/Visual Studio Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_07fec.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && Microsoft (R) Build Engine versión 17.2.1+52cd2da31 para .NET Framework
 Copyright (C) Microsoft Corporation. Todos los derechos reservados.
 
   Compilador de optimización de C/C++ de Microsoft (R) versión 19.32.31332 para x64
   CheckIncludeFile.c
   (C) Microsoft Corporation. Todos los derechos reservados.
-  cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_313de.dir\Debug\\" /Fd"cmTC_313de.dir\Debug\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\build\CMakeFiles\CMakeScratch\TryCompile-6nmltr\CheckIncludeFile.c"
-  cmTC_313de.vcxproj -> C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\build\CMakeFiles\CMakeScratch\TryCompile-6nmltr\Debug\cmTC_313de.exe
+  cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_07fec.dir\Debug\\" /Fd"cmTC_07fec.dir\Debug\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\build\CMakeFiles\CMakeScratch\TryCompile-mts1g8\CheckIncludeFile.c"
+  cmTC_07fec.vcxproj -> C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\build\CMakeFiles\CMakeScratch\TryCompile-mts1g8\Debug\cmTC_07fec.exe
 
 
 
 Determining if the include file stddef.h exists passed with the following output:
-Change Dir: C:/Users/Usuario/Desktop/Programacion en C++/SFML_Project/SFML_SpaceInvaderClone/build/CMakeFiles/CMakeScratch/TryCompile-zpvkaq
+Change Dir: C:/Users/Usuario/Desktop/Programacion en C++/SFML_Project/SFML_SpaceInvaderClone/build/CMakeFiles/CMakeScratch/TryCompile-carbhj
 
-Run Build Command(s):D:/Visual Studio Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_c3be2.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && Microsoft (R) Build Engine versión 17.2.1+52cd2da31 para .NET Framework
+Run Build Command(s):D:/Visual Studio Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_a7744.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && Microsoft (R) Build Engine versión 17.2.1+52cd2da31 para .NET Framework
 Copyright (C) Microsoft Corporation. Todos los derechos reservados.
 
   Compilador de optimización de C/C++ de Microsoft (R) versión 19.32.31332 para x64
   CheckIncludeFile.c
   (C) Microsoft Corporation. Todos los derechos reservados.
-  cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_c3be2.dir\Debug\\" /Fd"cmTC_c3be2.dir\Debug\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\build\CMakeFiles\CMakeScratch\TryCompile-zpvkaq\CheckIncludeFile.c"
-  cmTC_c3be2.vcxproj -> C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\build\CMakeFiles\CMakeScratch\TryCompile-zpvkaq\Debug\cmTC_c3be2.exe
+  cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_a7744.dir\Debug\\" /Fd"cmTC_a7744.dir\Debug\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\build\CMakeFiles\CMakeScratch\TryCompile-carbhj\CheckIncludeFile.c"
+  cmTC_a7744.vcxproj -> C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\build\CMakeFiles\CMakeScratch\TryCompile-carbhj\Debug\cmTC_a7744.exe
 
 
 
 Determining size of void* passed with the following output:
-Change Dir: C:/Users/Usuario/Desktop/Programacion en C++/SFML_Project/SFML_SpaceInvaderClone/build/CMakeFiles/CMakeScratch/TryCompile-027562
+Change Dir: C:/Users/Usuario/Desktop/Programacion en C++/SFML_Project/SFML_SpaceInvaderClone/build/CMakeFiles/CMakeScratch/TryCompile-imu3i1
 
-Run Build Command(s):D:/Visual Studio Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_09729.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && Microsoft (R) Build Engine versión 17.2.1+52cd2da31 para .NET Framework
+Run Build Command(s):D:/Visual Studio Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_2da84.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && Microsoft (R) Build Engine versión 17.2.1+52cd2da31 para .NET Framework
 Copyright (C) Microsoft Corporation. Todos los derechos reservados.
 
   Compilador de optimización de C/C++ de Microsoft (R) versión 19.32.31332 para x64
   SIZEOF_VOID_PTR.c
   (C) Microsoft Corporation. Todos los derechos reservados.
-  cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_09729.dir\Debug\\" /Fd"cmTC_09729.dir\Debug\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\build\CMakeFiles\CMakeScratch\TryCompile-027562\SIZEOF_VOID_PTR.c"
-  cmTC_09729.vcxproj -> C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\build\CMakeFiles\CMakeScratch\TryCompile-027562\Debug\cmTC_09729.exe
+  cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_2da84.dir\Debug\\" /Fd"cmTC_2da84.dir\Debug\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\build\CMakeFiles\CMakeScratch\TryCompile-imu3i1\SIZEOF_VOID_PTR.c"
+  cmTC_2da84.vcxproj -> C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\build\CMakeFiles\CMakeScratch\TryCompile-imu3i1\Debug\cmTC_2da84.exe
 
 
 

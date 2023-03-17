@@ -2,6 +2,8 @@
 #include <SFML/Graphics.hpp>
 #include "gameobject.h"
 #include "TextureLoader.h"
+#include "SpecialObject.h"
+#include <random>
 class Enemy : public Gameobject {
 public:
 
@@ -18,7 +20,7 @@ public:
     //Methods
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
     void setPosition(sf::Vector2f position);
-    void move(float offsetX, float offsetY);
+    virtual void move(float offsetX, float offsetY);
     void update(float dt) override;
     bool isMarkedForDeletion() const;
 
@@ -28,6 +30,7 @@ public:
 private:
 
     // Atributos
+    std::mt19937 rng;
     int m_score = 10;
 
     

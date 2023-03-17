@@ -28,7 +28,7 @@ public:
 private:
 
     // Atributos
-
+    void resetBullet();
     //Anim Attributes
     //enum class BULLET_ENUM_STATES{IDLE,PROP,PROP2};
     //int m_CurrentAnim;

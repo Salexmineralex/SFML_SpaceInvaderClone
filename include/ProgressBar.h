@@ -19,6 +19,8 @@ public:
 
 	void setOrigin(sf::Vector2f position);
 
+	void setTexture(sf::Texture Texture);
+
 	int getPercentage();
 
 	void setPercentage(int percentage);

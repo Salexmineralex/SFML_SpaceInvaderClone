@@ -127,6 +127,8 @@ void Player::update(float dt)
         b->mIsMarkedForDeletion = false;
 
         b->setVisibility(true);
+        
+    
 
         b->setPosition(getPosition().x + b->getTexture()->getSize().x/4, getPosition().y-20);
 
@@ -192,7 +194,10 @@ bool Player::collidesWith(const Gameobject& other) const
 };
 void Player::handleCollision(Gameobject& other)
 {
-
+    if(other.getTag() == "SpecialObject")
+    {
+        std::cout << "OjetoSpecial";
+    }
 
 
 };

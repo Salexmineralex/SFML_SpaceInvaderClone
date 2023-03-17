@@ -111,6 +111,13 @@ void ProgressBar::setOrigin(sf::Vector2f position)
 
 }
 
+void ProgressBar::setTexture(sf::Texture Texture)
+{
+
+    this->m_progressBar.setTexture(Texture);
+
+}
+
 int ProgressBar::getPercentage()
 {
     return this->m_actualPercentage;

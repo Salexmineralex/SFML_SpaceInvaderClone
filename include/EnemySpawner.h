@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "MyText.h"
+#include <random>
 #include "gameobject.h"
 #include "ObjectPooler.h"
 #include <vector>
@@ -8,7 +9,7 @@
 #include "Enemy.h"
 #include "game.h"
 #include <iostream>
-#include <math.h>
+#include "ShootingEnemy.h"
 class EnemySpawner : public Gameobject {
 public:
 
@@ -33,11 +34,16 @@ public:
 private:
 
     // Atributos
+    std::mt19937 rng;
     float m_enemydeltaClock = 0;
     float m_countdowndeltaClock = 0;
     std::vector<Enemy*> m_enemyGrid;
     ObjectPooler<Enemy> m_enemyObjectPool;
+    ObjectPooler<ShootingEnemy> m_ShootingenemyObjectPool;
     MyText* m_countdown_text;
+
+    float m_enemyPercentSpawn = 100;
+    float m_shootingEnemyPercentSpawn = 4.9444f - 4.444f;
 
     bool move_down = false;
     bool move_to_left = false;

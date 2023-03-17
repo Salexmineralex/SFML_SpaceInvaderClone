@@ -325,6 +325,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\include\ProgressBar.h" />
     <ClInclude Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\include\UIGameobject.h" />
     <ClInclude Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\include\ScoreLifeManager.h" />
+    <ClInclude Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\include\ShootingEnemy.h" />
+    <ClInclude Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\include\SpecialObject.h" />
+    <ClInclude Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\include\EnemyBullet.h" />
     <ClCompile Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\source\Enemy.cpp" />
     <ClCompile Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\source\Bullet.cpp" />
     <ClCompile Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\source\Player.cpp" />
@@ -340,6 +343,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\source\ProgressBar.cpp" />
     <ClCompile Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\source\UIGameobject.cpp" />
     <ClCompile Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\source\ScoreLifeManager.cpp" />
+    <ClCompile Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\source\ShootingEnemy.cpp" />
+    <ClCompile Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\source\SpecialObject.cpp" />
+    <ClCompile Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\source\EnemyBullet.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Users\Usuario\Desktop\Programacion en C++\SFML_Project\SFML_SpaceInvaderClone\build\ZERO_CHECK.vcxproj">

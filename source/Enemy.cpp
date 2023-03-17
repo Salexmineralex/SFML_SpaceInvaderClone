@@ -30,9 +30,6 @@ Enemy::Enemy()
     m_sprite.setPosition(0, 0);
     m_sprite.setTexture(*this->m_texture);
     m_sprite.setOrigin(0, 0);
-
-
-    
 }
 
 Enemy::~Enemy()
@@ -63,10 +60,10 @@ void Enemy::setPosition(sf::Vector2f position)
 }
 
 // Override the move function to update the sprite's position
-void Enemy::move(float x, float y)
+void Enemy::move(float offsetX, float offsetY)
 {
 
-    Gameobject::setPosition(sf::Vector2f(this->getPosition().x + x, this->getPosition().y + y));
+    Gameobject::setPosition(sf::Vector2f(this->getPosition().x + offsetX, this->getPosition().y + offsetY));
     m_sprite.setPosition(getPosition());
  
 }
@@ -93,10 +90,21 @@ void Enemy::handleCollision(Gameobject& other)
 
     if(other.getTag() == "Bullet")
     {
+
+        std::uniform_int_distribution<std::mt19937::result_type> uniformDistribution(1, 100);
+        int randomNumber = uniformDistribution(rng);
+
+        if (randomNumber <= 5)
+        {
+            SpecialObject* so = new SpecialObject();
+            so->setPosition(getPosition().x, getPosition().y);
+            Game::getInstance()->getWorld()->addObject(so);
+        }
+
         setPosition(sf::Vector2f(0, 0));
         setVisibility(false);
         mIsMarkedForDeletion = true;
-        Game::getInstance()->getScoreLifeManager()->addScore(m_score);
+        Game::getInstance()->getScoreLifeManager()->addScore(this->m_score);
 
     }
 
