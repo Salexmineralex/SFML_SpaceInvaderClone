@@ -14,7 +14,7 @@ ProgressBar::ProgressBar():
     {
         this->m_texture_frame = new  sf::Texture();
 
-        if (!m_texture_frame->loadFromFile("../Assets/Sprites/progressBarFrame.png"))
+        if (!m_texture_frame->loadFromFile(Game::getInstance()->getData()["ProgressBar"]["texturePathFrame"]))
         {
             // Error loading texture
 
@@ -32,7 +32,7 @@ ProgressBar::ProgressBar():
     {
         this->m_texture_progressBar = new  sf::Texture();
 
-        if (!m_texture_progressBar->loadFromFile("../Assets/Sprites/progressBarFill.png"))
+        if (!m_texture_progressBar->loadFromFile(Game::getInstance()->getData()["ProgressBar"]["texturePathProgressBar"]))
         {
             // Error loading texture
 
@@ -43,18 +43,17 @@ ProgressBar::ProgressBar():
     }
 
 
-    this->setPosition(sf::Vector2f(0, 0));
-    this->setOrigin(sf::Vector2f(0, 0));
-    this->m_frame.setPosition(0, 0);
-    this->m_progressBar.setPosition(0, 0);
-    this->m_frame.setOrigin(0, 0);
-    this->m_progressBar.setOrigin(0, 0);
+    this->setPosition(sf::Vector2f(Game::getInstance()->getData()["ProgressBar"]["position"][0], Game::getInstance()->getData()["ProgressBar"]["position"][1]));
+    this->setOrigin(sf::Vector2f(Game::getInstance()->getData()["ProgressBar"]["origin"][0], Game::getInstance()->getData()["ProgressBar"]["origin"][1]));
+    this->m_frame.setPosition(Game::getInstance()->getData()["ProgressBar"]["position"][0], Game::getInstance()->getData()["ProgressBar"]["position"][1]);
+    this->m_progressBar.setPosition(Game::getInstance()->getData()["ProgressBar"]["position"][0], Game::getInstance()->getData()["ProgressBar"]["position"][1]);
+    this->m_frame.setOrigin(Game::getInstance()->getData()["ProgressBar"]["origin"][0], Game::getInstance()->getData()["ProgressBar"]["origin"][1]);
+    this->m_progressBar.setOrigin(Game::getInstance()->getData()["ProgressBar"]["origin"][0], Game::getInstance()->getData()["ProgressBar"]["origin"][1]);
+    m_progressBar.setScale(Game::getInstance()->getData()["ProgressBar"]["scale"][0], Game::getInstance()->getData()["ProgressBar"]["scale"][1]);
+    m_frame.setScale(Game::getInstance()->getData()["ProgressBar"]["scale"][0], Game::getInstance()->getData()["ProgressBar"]["scale"][1]);
     this->m_frame.setTexture(*m_texture_frame);
     this->m_progressBar.setTexture(*m_texture_progressBar);
-    m_progressBar.setScale(3, 3);
-    m_frame.setScale(3, 3);
-
-
+  
 }
 
 ProgressBar::ProgressBar(std::string label) : ProgressBar()
@@ -75,7 +74,7 @@ ProgressBar::~ProgressBar()
 
 void ProgressBar::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-    if (this->mVisibility)
+    if (this->m_Visibility)
     {
 
         target.draw(this->m_frame, states);

@@ -26,11 +26,9 @@ private:
 
     // Atributos
     void resetBullet();
-    //Anim Attributes
-    //enum class BULLET_ENUM_STATES{IDLE,PROP,PROP2};
-    //int m_CurrentAnim;
-    //sf::Clock m_AnimChanger;
-    //sf::IntRect m_actualFrame;
-    //bool m_animationSwitch;
+    
+    //CONST VARIABLES
+    float m_BULLET_SPEED = 0;
+    float m_DAMAGE = 0;
 
 };

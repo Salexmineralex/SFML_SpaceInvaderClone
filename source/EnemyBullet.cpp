@@ -6,11 +6,12 @@
 
 
 
-
-EnemyBullet::EnemyBullet()
+EnemyBullet::EnemyBullet():
+    m_DAMAGE(Game::getInstance()->getData()["EnemyBullet"]["damage"]),
+    m_BULLET_SPEED(Game::getInstance()->getData()["EnemyBullet"]["bulletSpeed"])
 {
-
     TextureLoader t;
+
     if (t.getTexture(getTag()) != nullptr)
     {
         this->m_texture = t.getTexture(getTag());
@@ -19,7 +20,7 @@ EnemyBullet::EnemyBullet()
     {
         this->m_texture = new sf::Texture();
 
-        if (!m_texture->loadFromFile("../Assets/Sprites/Cohetes.png"))
+        if (!m_texture->loadFromFile(Game::getInstance()->getData()["EnemyBullet"]["texturePath"]))
         {
             // Error loading texture
 
@@ -30,14 +31,12 @@ EnemyBullet::EnemyBullet()
     }
 
 
-
-    this->setPosition(0, 0);
-    this->setOrigin(0, 0);
-    /*  this->m_AnimChanger.restart();
-      this->m_animationSwitch = true;*/
-    m_sprite.setPosition(0, 0);
-    m_sprite.setTexture(*this->m_texture);
-    m_sprite.setOrigin(0, 0);
+    this->setPosition(Game::getInstance()->getData()["EnemyBullet"]["position"][0], Game::getInstance()->getData()["EnemyBullet"]["position"][1]);
+    this->setOrigin(Game::getInstance()->getData()["EnemyBullet"]["origin"][0], Game::getInstance()->getData()["EnemyBullet"]["origin"][1]);
+    m_sprite.setPosition(sf::Vector2f(Game::getInstance()->getData()["EnemyBullet"]["position"][0], Game::getInstance()->getData()["EnemyBullet"]["position"][1]));
+    m_sprite.setOrigin(Game::getInstance()->getData()["EnemyBullet"]["origin"][0], Game::getInstance()->getData()["EnemyBullet"]["origin"][1]);
+    m_currentframe.width = Game::getInstance()->getData()["EnemyBullet"]["currentFrame"]["width"];
+    m_currentframe.height = Game::getInstance()->getData()["EnemyBullet"]["currentFrame"]["height"];
     m_sprite.rotate(180);
 
 
@@ -68,13 +67,13 @@ std::string EnemyBullet::getTag() const
 
 void EnemyBullet::update(float dt)
 {
-    if (getPosition().y >= 1000 && !mIsMarkedForDeletion)
+    if (getPosition().y >= 1000 && !m_IsMarkedForDeletion)
     {
         resetBullet();
     }
     else
     {
-        move(0, (1000 * dt));
+        move(0, (m_BULLET_SPEED * dt));
 
     }
 }
@@ -95,7 +94,7 @@ void EnemyBullet::handleCollision(Gameobject& other)
     if (other.getTag() == "Player")
     {
         resetBullet();
-        Game::getInstance()->getScoreLifeManager()->substractLife(10);
+        Game::getInstance()->getScoreLifeManager()->substractLife(m_DAMAGE);
     }
 }
 void EnemyBullet::resetBullet()
@@ -103,6 +102,6 @@ void EnemyBullet::resetBullet()
 
     this->setPosition(0, 0);
     this->setVisibility(false);
-    this->mIsMarkedForDeletion = true;
+    this->m_IsMarkedForDeletion = true;
     ShootingEnemy::m_EnemybulletObjectPool->add_one(this);
 };

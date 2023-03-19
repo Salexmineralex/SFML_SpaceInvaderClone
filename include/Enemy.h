@@ -27,11 +27,17 @@ public:
     bool collidesWith(const Gameobject& other) const override;
     void handleCollision(Gameobject& other) override;
 
+    virtual void updateAnimation() override;
+
 private:
 
     // Atributos
     std::mt19937 rng;
-    int m_score = 10;
+    int m_score;
+    enum ENEMY_ANIMATION_STATES {IDLE, IDLE_2};
 
+
+    //CONST VARIABLES
+    const float m_SPECIAL_OBJECT_SPAWN_RATE = 0;
     
 };

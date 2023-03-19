@@ -17,3 +17,5 @@ C:/Users/Usuario/Desktop/Programacion en C++/SFML_Project/SFML_SpaceInvaderClone
 C:/Users/Usuario/Desktop/Programacion en C++/SFML_Project/SFML_SpaceInvaderClone/build/_deps/sfml-build/src/SFML/Graphics/CMakeFiles/INSTALL.dir
 C:/Users/Usuario/Desktop/Programacion en C++/SFML_Project/SFML_SpaceInvaderClone/build/_deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir
 C:/Users/Usuario/Desktop/Programacion en C++/SFML_Project/SFML_SpaceInvaderClone/build/_deps/sfml-build/src/SFML/Audio/CMakeFiles/INSTALL.dir
+C:/Users/Usuario/Desktop/Programacion en C++/SFML_Project/SFML_SpaceInvaderClone/build/_deps/json-build/CMakeFiles/INSTALL.dir
+C:/Users/Usuario/Desktop/Programacion en C++/SFML_Project/SFML_SpaceInvaderClone/build/_deps/json-build/CMakeFiles/ALL_BUILD.dir

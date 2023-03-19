@@ -1,12 +1,12 @@
 #include "gameobject.h"
 
 Gameobject::Gameobject(sf::Vector2f position) :
-    mIsMarkedForDeletion(false)
+    m_IsMarkedForDeletion(false)
 {
     sf::Transformable::setPosition(position);
 }
 Gameobject::Gameobject() :
-    mIsMarkedForDeletion(false)
+    m_IsMarkedForDeletion(false)
 {
     sf::Transformable::setPosition(sf::Vector2f(0,0));
 }
@@ -35,12 +35,12 @@ void Gameobject::handleCollision(Gameobject& other)
 
 bool Gameobject::isMarkedForDeletion() const
 {
-    return mIsMarkedForDeletion;
+    return m_IsMarkedForDeletion;
 }
 
 void Gameobject::setVisibility(const bool visibility)
 {
-    Gameobject::mVisibility = visibility;
+    Gameobject::m_Visibility = visibility;
 }
 
 void Gameobject::setPosition(sf::Vector2f position)
@@ -52,3 +52,8 @@ sf::Vector2f Gameobject::getPosition() const
 {
     return sf::Transformable::getPosition();
 }
+
+void Gameobject::updateAnimation()
+{
+}
+

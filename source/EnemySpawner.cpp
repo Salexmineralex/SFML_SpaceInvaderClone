@@ -1,10 +1,14 @@
 #include "enemySpawner.h"
-EnemySpawner::EnemySpawner() 
+EnemySpawner::EnemySpawner() :
+    m_enemyPercentSpawn(Game::getInstance()->getData()["Enemy"]["spawn_rate"]),
+    m_shootingEnemyPercentSpawn((Game::getInstance()->getData()["ShootingEnemy"]["spawn_rate"])),
+    m_SPAWNENEMIES(Game::getInstance()->getData()["EnemySpawner"]["SpawnEnemies"]),
+    m_COUNTDOWN(Game::getInstance()->getData()["EnemySpawner"]["CountdownSeconds"])
 {
     
     this->m_enemyGrid = std::vector<Enemy*>();
-    this->m_enemyObjectPool = ObjectPooler<Enemy>(10);
-    this->m_ShootingenemyObjectPool = ObjectPooler<ShootingEnemy>(5);
+    this->m_enemyObjectPool = ObjectPooler<Enemy>(Game::getInstance()->getData()["EnemySpawner"]["EnemieObjectPoolSize"]);
+    this->m_ShootingenemyObjectPool = ObjectPooler<ShootingEnemy>(Game::getInstance()->getData()["EnemySpawner"]["ShootingEnemieObjectPoolSize"]);
     this->m_countdown_text = new MyText();
     createText();
 
@@ -50,7 +54,7 @@ void EnemySpawner::update(float dt)
                
                 m_enemyGrid[i]->move(35, 0);
                 
-                if (m_enemyGrid[i]->getPosition().x+ m_enemyGrid[i]->getTexture()->getSize().x > Game::getInstance()->getWindow()->getSize().x - m_enemyGrid[i]->getTexture()->getSize().x)
+                if (m_enemyGrid[i]->getPosition().x+ m_enemyGrid[i]->getSprite().getTextureRect().width > Game::getInstance()->getWindow()->getSize().x - m_enemyGrid[i]->getSprite().getTextureRect().width)
                 {
                     move_to_left = true;
                     move_down = true;
@@ -67,7 +71,7 @@ void EnemySpawner::update(float dt)
 
                 m_enemyGrid[i]->move(-35, 0);
                 
-                if (m_enemyGrid[i]->getPosition().x < 0 + m_enemyGrid[i]->getTexture()->getSize().x)
+                if (m_enemyGrid[i]->getPosition().x/2 < 0 + m_enemyGrid[i]->getSprite().getTextureRect().width)
                 {
                     move_to_left = false;
                     move_down = true;
@@ -98,15 +102,16 @@ void EnemySpawner::spawn(int level)
 
 
         //Spawn Enemies
-        for (size_t i = 0; i < 2 * level; i++)
+        for (size_t i = 0; i < m_SPAWNENEMIES * level; i++)
         {
 
             Enemy* p = nullptr;
             Enemy* g = nullptr;
             
             std::uniform_int_distribution<std::mt19937::result_type> uniformDistribution(1, 100);
+            rng.seed((std::chrono::system_clock::now().time_since_epoch().count()));
             int randomNumber = uniformDistribution(rng);
-            if(randomNumber <= Game::getInstance()->getLevel()* 4.9444f - 4.444f)
+            if(randomNumber <= m_shootingEnemyPercentSpawn)
             {
                 p = this->m_ShootingenemyObjectPool.get_one();
             }else
@@ -114,14 +119,14 @@ void EnemySpawner::spawn(int level)
                 p = this->m_enemyObjectPool.get_one();
             }
 
-            p->mIsMarkedForDeletion = false;
+            p->m_IsMarkedForDeletion = false;
             p->setVisibility(true);
+            p->setPosition(sf::Vector2f((Game::getInstance()->getWindow()->getSize().x / 2 - p->m_currentframe.width) - p->getTexture()->getSize().x * colum * 1, line));            
             Game::getInstance()->getWorld()->addObject(p);
-            p->setPosition(sf::Vector2f((Game::getInstance()->getWindow()->getSize().x/2 - p->getTexture()->getSize().x) - p->getTexture()->getSize().x * colum * 2.5, line));
 
             m_enemyGrid.push_back(p);
 
-            if (uniformDistribution(rng) <= Game::getInstance()->getLevel() * m_shootingEnemyPercentSpawn)
+            if (uniformDistribution(rng) <= m_shootingEnemyPercentSpawn)
             {
                 g = this->m_ShootingenemyObjectPool.get_one();
             }
@@ -130,11 +135,10 @@ void EnemySpawner::spawn(int level)
                 g = this->m_enemyObjectPool.get_one();
             }
 
-            g->mIsMarkedForDeletion = false;
+            g->m_IsMarkedForDeletion = false;
             g->setVisibility(true);
+            g->setPosition(sf::Vector2f((Game::getInstance()->getWindow()->getSize().x / 2 + g->m_currentframe.width) + p->getTexture()->getSize().x * colum * 1, line));
             Game::getInstance()->getWorld()->addObject(g);
-            g->setPosition(sf::Vector2f((Game::getInstance()->getWindow()->getSize().x / 2 + p->getTexture()->getSize().x) + p->getTexture()->getSize().x * colum * 2.5, line));
-
             m_enemyGrid.push_back(g);
 
             colum++;
@@ -173,14 +177,14 @@ void EnemySpawner::CheckLost()
     {
         if (m_enemyGrid[i]->getPosition().y >= Game::getInstance()->getWindow()->getSize().y - 150)
         {
-            std::cout << "Lost";
+            Game::getInstance()->setGameOver(true);
         }
     }
 }
 
 bool EnemySpawner::isMarkedForDeletion() const
 {
-    return Gameobject::mIsMarkedForDeletion;
+    return Gameobject::m_IsMarkedForDeletion;
 }
 
 
@@ -217,7 +221,7 @@ void EnemySpawner::createText()
 void EnemySpawner::createCountdown(float dt)
 {
 
-    if (dt <= 4 && have_to_spawn)
+    if (dt <= m_COUNTDOWN && have_to_spawn)
     {
         m_countdown_text->setVisibility(true);
         if (dt < 1)

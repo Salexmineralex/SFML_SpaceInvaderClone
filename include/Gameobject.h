@@ -1,6 +1,7 @@
 #pragma once
+#include <random>
 #include <SFML/Graphics.hpp>
-
+#include <chrono>
 class Gameobject : public sf::Drawable, public sf::Transformable
 {
 public:
@@ -25,11 +26,18 @@ public:
     void setPosition(sf::Vector2f position);
     sf::Vector2f getPosition() const;
 
+    //Animation Methods
+    virtual void updateAnimation();
+
     //Attributes
-    bool mIsMarkedForDeletion = false;
-    bool mVisibility = true;
+    bool m_IsMarkedForDeletion = false;
+    bool m_Visibility = true;
     sf::Sprite m_sprite;
     sf::Texture* m_texture;
 
+    //Animations
+    int m_animState;
+    sf::Clock m_animTimer;
+    sf::IntRect m_currentframe;
 
 };

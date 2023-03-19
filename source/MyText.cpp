@@ -7,7 +7,7 @@ MyText::MyText()
 
 void MyText::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-    if(this->mVisibility)
+    if(this->m_Visibility)
     {
       
         target.draw(this->m_actualText, states);

@@ -24,7 +24,7 @@ public:
     sf::Vector2f getPosition() const;
 
     //Attributes
-    bool mIsMarkedForDeletion = false;
-    bool mVisibility = true;
+    bool m_IsMarkedForDeletion = false;
+    bool m_Visibility = true;
 
 };

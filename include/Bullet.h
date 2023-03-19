@@ -25,15 +25,17 @@ public:
     bool collidesWith(const Gameobject& other) const override;
     void handleCollision(Gameobject& other) override;
 
+    void updateAnimation() override;
+
+
 private:
 
     // Atributos
     void resetBullet();
+
     //Anim Attributes
-    //enum class BULLET_ENUM_STATES{IDLE,PROP,PROP2};
-    //int m_CurrentAnim;
-    //sf::Clock m_AnimChanger;
-    //sf::IntRect m_actualFrame;
-    //bool m_animationSwitch;
+    enum BULLET_ENUM_STATES{IDLE,PROP,PROP2,PROPF};
+    //CONST VARIABLES
+    float m_BULLET_SPEED = 0;
 
 };

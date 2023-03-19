@@ -16,7 +16,7 @@ SpecialObject::SpecialObject()
     {
         this->m_texture = new sf::Texture();
 
-        if (!m_texture->loadFromFile("../Assets/Sprites/enemie_sprite.png"))
+        if (!m_texture->loadFromFile("../Assets/Sprites/powerUP_sprite.png"))
         {
             // Error loading texture
 
@@ -81,7 +81,7 @@ void SpecialObject::move(float x, float y)
 
 void SpecialObject::update(float dt)
 {
-    if (getPosition().y >= 1000 && !mIsMarkedForDeletion)
+    if (getPosition().y >= 1000 && !m_IsMarkedForDeletion)
     {
         resetObject();
     }
@@ -96,7 +96,7 @@ void SpecialObject::draw(sf::RenderTarget& target, sf::RenderStates states) cons
 {
 
     //states.transform = getTransform();
-    if (this->mVisibility)
+    if (this->m_Visibility)
     {
         target.draw(m_sprite, states);
     }
@@ -124,12 +124,12 @@ void SpecialObject::resetObject()
 
     this->setPosition(0, 0);
     this->setVisibility(false);
-    this->mIsMarkedForDeletion = true;
+    this->m_IsMarkedForDeletion = true;
 
 
 };
 
 bool SpecialObject::isMarkedForDeletion() const
 {
-    return Gameobject::mIsMarkedForDeletion;
+    return Gameobject::m_IsMarkedForDeletion;
 }

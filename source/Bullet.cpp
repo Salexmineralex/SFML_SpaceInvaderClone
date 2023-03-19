@@ -3,7 +3,9 @@
 #include "TextureLoader.h"
 #include "Player.h"
 #include "Game.h"
-Bullet::Bullet()
+
+Bullet::Bullet():
+    m_BULLET_SPEED(Game::getInstance()->getData()["Bullet"]["bulletSpeed"])
 {
 
     TextureLoader t;
@@ -15,7 +17,7 @@ Bullet::Bullet()
     {
         this->m_texture = new sf::Texture();
 
-        if (!m_texture->loadFromFile("../Assets/Sprites/Cohetes.png"))
+        if (!m_texture->loadFromFile(Game::getInstance()->getData()["Bullet"]["texturePath"]))
         {
             // Error loading texture
 
@@ -27,14 +29,16 @@ Bullet::Bullet()
   
 
 
-    this->setPosition(0, 0);
-    this->setOrigin(0, 0);
-  /*  this->m_AnimChanger.restart();
-    this->m_animationSwitch = true;*/
-    m_sprite.setPosition(0, 0);
-    m_sprite.setTexture(*this->m_texture);
-    m_sprite.setOrigin(0, 0);
+    this->setPosition(Game::getInstance()->getData()["Bullet"]["position"][0], Game::getInstance()->getData()["Bullet"]["position"][1]);
+    this->setOrigin(Game::getInstance()->getData()["Bullet"]["origin"][0], Game::getInstance()->getData()["Bullet"]["origin"][1]);
 
+    m_sprite.setPosition(sf::Vector2f(Game::getInstance()->getData()["Bullet"]["position"][0], Game::getInstance()->getData()["Bullet"]["position"][1]));
+    m_sprite.setOrigin(Game::getInstance()->getData()["Bullet"]["origin"][0], Game::getInstance()->getData()["Bullet"]["origin"][1]);
+    m_sprite.setTexture(*this->m_texture);
+    m_currentframe.width = Game::getInstance()->getData()["Bullet"]["currentFrame"]["width"];
+    m_currentframe.height = Game::getInstance()->getData()["Bullet"]["currentFrame"]["height"];
+    m_sprite.setTextureRect(m_currentframe);
+    m_animState = IDLE;
 
 }
 
@@ -80,22 +84,24 @@ void Bullet::move(float x, float y)
 
 void Bullet::update(float dt)
 {
-      if (getPosition().y <= -10 && !mIsMarkedForDeletion)
+      if (getPosition().y <= -10 && !m_IsMarkedForDeletion)
       {
           resetBullet();
       }
       else
       {
-          move(0, -(1000 * dt));
+          move(0, -(m_BULLET_SPEED * dt));
       
       }
+
+      updateAnimation();
 }
 
 void Bullet::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
 
     //states.transform = getTransform();
-    if(this->mVisibility)
+    if(this->m_Visibility)
     {
         target.draw(m_sprite, states);
     }
@@ -121,16 +127,56 @@ void Bullet::handleCollision(Gameobject& other)
         resetBullet();
     }
 }
+
+void Bullet::updateAnimation()
+{
+
+    if (this->m_animTimer.getElapsedTime().asSeconds() >= 0.2f && m_animState != PROPF)
+    {
+        switch (m_animState)
+        {
+        case IDLE: 
+            m_animState = PROP;
+            m_currentframe.top = 0;
+            m_currentframe.left = 0;
+            m_sprite.setTextureRect(m_currentframe);
+            break;
+        case PROP: 
+            m_animState = PROP2;
+            m_currentframe.top = 0;
+            m_currentframe.left += 25;
+            m_sprite.setTextureRect(m_currentframe);
+            break;
+        case PROP2:
+            m_animState = PROPF;
+            m_currentframe.top = 0;
+            m_currentframe.left += 25;
+            m_sprite.setTextureRect(m_currentframe);
+            break;
+        default:
+            break;
+        }
+
+        m_animTimer.restart();
+    }
+
+}
+
 void Bullet::resetBullet()
 {
 
     this->setPosition(0, 0);
     this->setVisibility(false);
-    this->mIsMarkedForDeletion = true;
+    m_currentframe.top = 0;
+    m_currentframe.left = 0;
+    m_animState = IDLE;
+    m_sprite.setTextureRect(m_currentframe);
+    this->m_IsMarkedForDeletion = true;
     Player::m_bulletObjectPool->add_one(this);
+
 };
 
 bool Bullet::isMarkedForDeletion() const
 {
-    return Gameobject::mIsMarkedForDeletion;
+    return Gameobject::m_IsMarkedForDeletion;
 }

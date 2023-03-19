@@ -1,7 +1,9 @@
+#pragma once
 #include <SFML/Graphics.hpp>
 #include <gameobject.h>
 #include "ObjectPooler.h"
-#pragma once
+
+
 
 class SpecialObject : public Gameobject {
 public:
@@ -28,6 +30,7 @@ public:
     void resetObject();
 
 private:
+
 
 
 };

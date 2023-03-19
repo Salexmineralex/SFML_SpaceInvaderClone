@@ -42,12 +42,18 @@ private:
     ObjectPooler<ShootingEnemy> m_ShootingenemyObjectPool;
     MyText* m_countdown_text;
 
-    float m_enemyPercentSpawn = 100;
-    float m_shootingEnemyPercentSpawn = 4.9444f - 4.444f;
 
     bool move_down = false;
     bool move_to_left = false;
     bool have_to_spawn = false;
+
+
+    //CONST VARIABLES
+    const float m_enemyPercentSpawn;
+    const float m_shootingEnemyPercentSpawn;
+    const float m_SPAWNENEMIES;
+    const float m_COUNTDOWN;
+
 
 
     //Methods

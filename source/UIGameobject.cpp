@@ -1,24 +1,24 @@
 #include "UIGameobject.h"
 
 UIGameobject::UIGameobject(sf::Vector2f position) :
-    mIsMarkedForDeletion(false)
+    m_IsMarkedForDeletion(false)
 {
     sf::Transformable::setPosition(position);
 }
 UIGameobject::UIGameobject() :
-    mIsMarkedForDeletion(false)
+    m_IsMarkedForDeletion(false)
 {
     sf::Transformable::setPosition(sf::Vector2f(0, 0));
 }
 
 bool UIGameobject::isMarkedForDeletion() const
 {
-    return mIsMarkedForDeletion;
+    return m_IsMarkedForDeletion;
 }
 
 void UIGameobject::setVisibility(const bool visibility)
 {
-    mVisibility = visibility;
+    m_Visibility = visibility;
 }
 
 void UIGameobject::setPosition(sf::Vector2f position)

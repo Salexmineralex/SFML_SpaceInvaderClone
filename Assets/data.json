@@ -1,0 +1,97 @@
+{
+  "Game": {
+    "level": 1,
+    "increment_every_level": 1,
+    "framerate": 60,
+    "fontPath": "../Assets/Fonts/dogica.ttf",
+    "backgroundPath": "../Assets/Sprites/Fondo.png",
+    "window": {
+      "width": 1920,
+      "height": 1080
+    }
+  },
+  "Player": {
+    "speed": 1000,
+    "time_to_reshoot": 2,
+    "power_up_duration": 1000,
+    "power_up_spawnrate": 25,
+    "texturePath": "../Assets/Sprites/Ship.png",
+    "position": [ 0, 0 ],
+    "origin": [ 0, 0 ],
+    "currentFrame": {
+      "width": 50,
+      "height": 50
+    },
+    "bulletObjectPoolSize": 3
+  },
+  "Enemy": {
+    "special_object_spawn_rate": 5,
+    "texturePath": "../Assets/Sprites/enemie_sprite-sheet.png",
+    "score": 10,
+    "spawn_rate": 100,
+    "position": [ 0, 0 ],
+    "origin": [ 0, 0 ],
+    "currentFrame": {
+      "width": 50,
+      "height": 50
+    }
+  },
+  "ShootingEnemy": {
+    "texturePath": "../Assets/Sprites/shootingenemy.png",
+    "score": 20,
+    "spawn_rate": 5,
+    "special_object_spawn_rate": 10,
+    "position": [ 0, 0 ],
+    "origin": [ 0, 0 ],
+    "currentFrame": {
+      "width": 50,
+      "height": 50
+    },
+    "bulletObjectPoolSize": 3
+  },
+  "Bullet": {
+    "texturePath": "../Assets/Sprites/cohete.png",
+    "bulletSpeed": 1000,
+    "position": [ 0, 0 ],
+    "origin": [ 0, 0 ],
+    "currentFrame": {
+      "width": 25,
+      "height": 25
+    }
+  },
+  "EnemyBullet": {
+    "texturePath": "../Assets/Sprites/enemy_bullet.png",
+    "bulletSpeed": 1000,
+    "damage": 10,
+    "position": [ 0, 0 ],
+    "origin": [ 0, 0 ],
+    "currentFrame": {
+      "width": 25,
+      "height": 25
+    }
+  },
+  "EnemySpawner": {
+    "SpawnEnemies": 2,
+    "EnemieObjectPoolSize": 10,
+    "ShootingEnemieObjectPoolSize": 5,
+    "CountdownSeconds": 4
+
+  },
+  "ProgressBar": {
+    "texturePathFrame": "../Assets/Sprites/progressBarFrame.png",
+    "texturePathProgressBar": "../Assets/Sprites/progressBarFill.png",
+    "position": [ 0, 0 ],
+    "origin": [ 0, 0 ],
+    "scale": [ 3, 3 ]
+  },
+  "ScoreLifeManager": {
+    "score": 0,
+    "life": 100,
+    "maxLife": 100
+  }
+
+}
+
+/*  int m_score;
+    int m_life;
+    int m_maxLife = 100;*/

@@ -21,16 +21,24 @@ public:
     void move(float offsetX, float offsetY) override;
     void update(float dt) override;
 
+
     bool collidesWith(const Gameobject& other)  const override;
 
     void handleCollision(Gameobject& other) override;
-
+  
+    void updateAnimation() override;
+  
 private:
 
     // Atributos
     std::mt19937 rng;
-    int m_score = 20;
+    int m_score;
     float m_timeToShootdeltaClock = 0;
 
+    enum ENEMY_ANIMATION_STATES { IDLE, IDLE_2 };
+
+
+    //CONST VARIABLES
+    const float m_SPECIAL_OBJECT_SPAWN_RATE = 0;
 
 };

@@ -1,8 +1,9 @@
 #include "ScoreLifeManager.h"
 #include "Game.h"
 ScoreLifeManager::ScoreLifeManager():
-	m_score(0),
-	m_life(100)
+	m_score(Game::getInstance()->getData()["ScoreLifeManager"]["score"]),
+	m_life(Game::getInstance()->getData()["ScoreLifeManager"]["life"]),
+	m_maxLife(Game::getInstance()->getData()["ScoreLifeManager"]["maxLife"])
 {
 
 	m_life_progress_bar = new ProgressBar("Life:");
@@ -19,8 +20,9 @@ ScoreLifeManager::ScoreLifeManager():
 }
 
 ScoreLifeManager::ScoreLifeManager(int score, int life) :
-	m_score(score),
-	m_life(life)
+	m_score(Game::getInstance()->getData()["ScoreLifeManager"]["score"]),
+	m_life(Game::getInstance()->getData()["ScoreLifeManager"]["life"]),
+	m_maxLife(Game::getInstance()->getData()["ScoreLifeManager"]["maxLife"])
 {
 
 	m_life_progress_bar = new ProgressBar("Life:");
