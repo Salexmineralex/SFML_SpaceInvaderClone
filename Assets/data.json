@@ -1,6 +1,6 @@
 {
   "Game": {
-    "level": 1,
+    "level": 8,
     "increment_every_level": 1,
     "framerate": 60,
     "fontPath": "../Assets/Fonts/dogica.ttf",
@@ -12,7 +12,7 @@
   },
   "Player": {
     "speed": 1000,
-    "time_to_reshoot": 2,
+    "time_to_reshoot": 0.5,
     "power_up_duration": 1000,
     "power_up_spawnrate": 25,
     "texturePath": "../Assets/Sprites/Ship.png",
