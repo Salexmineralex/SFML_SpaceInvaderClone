@@ -1,6 +1,6 @@
 {
   "Game": {
-    "level": 8,
+    "level": 1,
     "increment_every_level": 1,
     "framerate": 60,
     "fontPath": "../Assets/Fonts/dogica.ttf",
